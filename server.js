@@ -2,9 +2,9 @@ const path = require('path');
 const express = require('express');
 const expbs = require('express-handlebars');
 
+
 const app = express();
 const PORT = process.env.PORT || 3001;
-
 
 app.engine('handlebars', expbs.engine());
 app.set('view engine', 'handlebars');
