@@ -46,7 +46,7 @@ router.post("/", async (req, res) => {
 
     res
       .status(200)
-      .json(`Category ${categoryData.category_name} has been created.`);
+      .json(`Category ${categoryData.name} has been created.`);
   } catch (err) {
     res.status(500).json(err);
   }
