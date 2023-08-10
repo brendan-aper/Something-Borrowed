@@ -2,11 +2,13 @@ const path = require('path');
 const express = require('express');
 const expbs = require('express-handlebars');
 
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const hbs = expbs.create({});
 app.engine('handlebars', hbs.engine);
+app.engine('handlebars', expbs.engine());
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
