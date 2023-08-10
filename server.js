@@ -5,8 +5,8 @@ const expbs = require('express-handlebars');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-
-app.engine('handlebars', expbs.engine());
+const hbs = expbs.create({});
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
