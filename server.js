@@ -13,19 +13,6 @@ const hbs = expbs.create({});
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-
-app.use(session({
-  secret: 'secret secret',
-  cookie: { maxAge: 3000},
-  resave: true,
-  saveUninitialized: false
-}));
-
-
-app.get('/', (req, res) => {
-  res.render('home');
-});
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
