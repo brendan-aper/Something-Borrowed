@@ -1,6 +1,6 @@
-const path = require('path');
-const express = require('express');
-const expbs = require('express-handlebars');
+const path = require("path");
+const express = require("express");
+const expbs = require("express-handlebars");
 const routes = require("./controllers");
 
 const sequelize = require("./config/connection");
@@ -10,16 +10,16 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.engine('handlebars', expbs.engine());
-app.set('view engine', 'handlebars');
+app.engine("handlebars", expbs.engine());
+app.set("view engine", "handlebars");
 
-app.get('/', (req, res) => {
-  res.render('home');
+app.get("/", (req, res) => {
+  res.render("home");
 });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Set up cookie session
 const sess = {
