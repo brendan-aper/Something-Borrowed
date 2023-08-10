@@ -1,6 +1,9 @@
 const path = require('path');
 const express = require('express');
+const session = require('express-session')
 const expbs = require('express-handlebars');
+const routes = require('./controllers/routes')
+const sequelize = require('./config/connection')
 
 
 const app = express();
@@ -17,7 +20,10 @@ app.get('/', (req, res) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(routes)
 
+
+sequelize.sync
 app.listen(PORT, () => {
   console.log(`Server is listening at PORT: ${PORT}`);
 });
