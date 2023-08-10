@@ -1,16 +1,33 @@
 const sequelize = require('../config/connection');
-// const Dish = require('../models/Dish');
-// const dishData = require('./dish-seeds.json');
+// import models
+const { User, Category, Item } = require('../models');
 
-const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
+const userData = [
+    { first_name: 'Merel', email: 'mimibanini@gmail.com', password: 'helloKitty', location: '97209',
+    }
+];
 
-  await Dish.bulkCreate(dishData, {
-    individualHooks: true,
-    returning: true,
-  });
+const categoryData = [
+    { name: 'Camping' }
+];
 
-  process.exit(0);
-};
+const itemData = [
+    { title: 'Tent', description: 'Large blue tent. Sleeps 4 people.', price: '10', location: '97209', category_id: '1', user_id: '1'}
+]
 
-seedDatabase();
+
+  async function seedDatabase() {
+    try {
+        await User.bulkCreate(userData);
+
+        await Category.bulkCreate(categoryData);
+
+        await Item.bulkCreate(itemData);
+
+        console.log(`Seed database successfully created.`)
+    } catch(err) {
+        console.error(`Error sending seed: ${err}`)
+    }
+  };
+
+  seedDatabase();
