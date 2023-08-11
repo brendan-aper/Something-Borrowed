@@ -5,9 +5,12 @@ const { Category, Item } = require("../../models");
 
 // Get all categories from database
 router.get("/", async (req, res) => {
+  // const allCategories = await Category.findAll();
+  // console.log('found all categories');
+  // res.json(allCategories)
   try {
     const categoryData = await Category.findAll({
-      include: Item,
+      include: Item
     });
 
     if (!categoryData) {
@@ -51,3 +54,15 @@ router.post("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.delete('/:id', async (req, res) => {
+  try {
+    await Category.destroy({where: {id: req.params.id}})
+    console.log('deleted');
+    res.json('deleted')
+  } catch (err) {
+    console.error(err)
+  }
+})
+
+module.exports = router;
