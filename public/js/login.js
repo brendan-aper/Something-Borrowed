@@ -1,8 +1,7 @@
-const loginBtn = document.querySelector('#loginBtn')
-
-
-loginBtn.addEventListener('click', (event) => {
-    event.preventDefault();
+async function loginHandler(event) {
+  event.preventDefault();
+  const userEmail = document.getElementById("login-email").value();
+  const userPass = document.getElementById("login-password").value();
 
     let email = document.querySelector('#login-email').value;
     let password = document.querySelector('#login-password').value;
@@ -28,4 +27,4 @@ loginBtn.addEventListener('click', (event) => {
         .catch((err) => {
             console.error(err); 
         });
-});
+};
