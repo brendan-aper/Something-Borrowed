@@ -18,6 +18,8 @@ const itemData = [
 
   async function seedDatabase() {
     try {
+        await sequelize.sync({ force: true });
+
         await User.bulkCreate(userData);
 
         await Category.bulkCreate(categoryData);
