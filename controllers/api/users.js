@@ -38,8 +38,6 @@ router.delete('/:id', async (req, res) => {
     res.json(findUser)
 })
 
-
-
 // update post =  successful
 router.put('/:id', async (req, res) => {
     try {
