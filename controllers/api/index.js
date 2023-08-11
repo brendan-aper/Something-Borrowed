@@ -4,6 +4,11 @@ const router = require('express').Router();
 
 // router.use('/index', indexRoutes);
 
+const categoryRoutes = require('./category-routes');
+
+router.use('/category', categoryRoutes);
+
+
 const userRoutes = require('./users');
 
 router.use('/user', userRoutes)
