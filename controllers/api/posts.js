@@ -2,27 +2,17 @@ const express = require('express');
 const { Item } = require('../../models');
 const router = express.Router();
 
-// Example in-memory data for item
-let item = [
-  { id: 1, name: 'Item 1' },
-  { id: 2, name: 'Item 2' },
-  // ... more item
-];
-
 // GET all item
-router.get('/', (req, res) => {
-  res.json(item);
+router.get('/', async (req, res) => {
+    const allItems= await Item.findAll();
+    console.log("found");
+  res.json(allItems);
 });
 
 // GET a single item by ID
-router.get('/:id', (req, res) => {
-  const itemId = parseInt(req.params.id);
-  const item = item.find(item => item.id === itemId);
-  if (item) {
-    res.json(item);
-  } else {
-    res.status(404).json({ message: 'Item not found' });
-  }
+router.get('/:id', async (req, res) => {
+    const singleItem = await Item.findByPk(req.params.id)
+    res.json(singleItem)
 });
 
 // POST a new item
@@ -37,7 +27,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', async (req, res) => {
     const finditem = await Item.destroy({ 
         where: {id: req.params.id}});
-    console.log(`User Deleted`);
+    console.log(`Item Deleted`);
     res.json(findItem)
 })
 
