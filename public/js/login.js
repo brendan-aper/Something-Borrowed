@@ -18,3 +18,7 @@ async function loginHandler(event) {
     alert("Cannot log in. Please check your email and password and try again.");
   }
 }
+
+// Add event listener to login button
+const loginForm = getElementById('login-form"');
+loginForm.addEventListener('submit', loginHandler)
