@@ -12,5 +12,5 @@ async function logoutHandler() {
 }
 
 // Add event listener to logout button
-const loginForm = getElementById('login-form"');
-loginForm.addEventListener("submit", loginHandler);
+const logoutBtn = getElementById("logout-btn");
+logoutBtn.addEventListener("click", logoutHandler);
