@@ -31,13 +31,13 @@ Item.init({
         allowNull: true
     },
     user_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     image: {
         // url string
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     }
 }, {
     sequelize,
