@@ -6,6 +6,7 @@
     <title>Something Borrowed</title>
   </head>
   <body>
+    {{#if loggedIn }}
     <nav class="navbar">
       <ul>
         {{! Make route for "/" in home-routes.js to show feed to logged out user }}
@@ -13,6 +14,16 @@
         <li class="nav-button">Login</li>
       </ul>
     </nav>
+    {{ else }}
+
+      <nav class="navbar">
+      <ul>
+        {{! Make route for "/" in home-routes.js to show feed to logged out user }}
+        <li class="nav-button">Explore</li>
+        <li class="nav-button">Log Out</li>
+      </ul>
+    </nav>
+    {{/if}}
     <main>
       {{{body}}}
     </main>

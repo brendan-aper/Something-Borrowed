@@ -1,24 +1,45 @@
-async function loginHandler(event) {
-  event.preventDefault();
-  const userEmail = document.getElementById("login-email").value();
-  const userPass = document.getElementById("login-password").value();
+const createBtn = document.querySelector('#createBtn');
+const loginBtn = document.querySelector('#loginBtn')
 
-  const response = await fetch("/api/user/login", {
-    method: "POST",
-    body: JSON.stringify({
-      email: userEmail,
-      password: userPass,
-    }),
-    headers: { "Content-Type": "application/json" },
-  });
+// singup Btn 
+createBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    // TODO: redirect to logout page
+    console.log('clicked')
+    window.location.href = '/'
+})
 
-  if (response.ok) {
-    document.location.replace("/dashboard");
-  } else {
-    alert("Cannot log in. Please check your email and password and try again.");
-  }
-}
+loginBtn.addEventListener('click', (event) => {
+    event.preventDefault();
 
-// Add event listener to login button
-const loginForm = getElementById('login-form"');
-loginForm.addEventListener('submit', loginHandler)
+    let email = document.querySelector('#login-email').value;
+    let password = document.querySelector('#login-password').value;
+    let location = document.querySelector('#login-location').value;
+    let name = document.querySelector('#login-name').value;
+
+    let userData = {
+        first_name: name,
+        email: email,
+        password: password,
+        location: location
+    }
+
+    console.log(userData);
+    try {
+        fetch('/api/user', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        }).then(fetch('/'))
+        .catch((err) => {
+            console.error(err); 
+        });
+    } catch (err) {
+        console.error(err); 
+    }
+
+
+
+});

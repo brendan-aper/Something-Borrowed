@@ -3,7 +3,7 @@ const router = require('express').Router();
 
 // get all posts for homepage
 router.get('/', async (req, res) => {
-    res.render('home')
+    res.render('all-listings', {loggedIn: req.session.loggedIn})
   })
 
 // login page
