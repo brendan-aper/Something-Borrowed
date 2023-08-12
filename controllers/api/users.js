@@ -4,7 +4,6 @@ const { User } = require('../../models')
 // get all users
 router.get('/', async (req, res) => {
     const allUsers = await User.findAll();
-    console.log('found them!');
     res.json(allUsers)
 })
 
@@ -13,7 +12,20 @@ router.post('/', async (req, res) => {
     try {
         const postText = await User.create(req.body);
         console.log('post created');
-        res.json(postText)
+        
+        console.log(postText.id)
+      
+      req.session.save(() => {
+        req.session.loggedIn = true;
+        req.session.user = postText.id;
+        console.log(
+          'File: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
+          req.session.cookie
+        );
+  
+        res.status(200).json({ message: 'You are now logged in!' });
+
+      });
     } catch (err) {
         if (err.name === 'SequelizeUniqueConstraintError') {
           return res.status(400).json({ error: 'Email address must be unique.' });

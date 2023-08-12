@@ -4,6 +4,14 @@
     <h2>Login</h2>
     <form>
       <div>
+        <label for="login-name">First Name:</label>
+        <input type="text" id="login-name" />
+      </div>
+      <div>
+        <label for="login-location">Location:</label>
+        <input class="form-input" type="text" id="login-location" />
+      </div>
+      <div>
         <label for="login-email">Email:</label>
         <input type="text" id="login-email" />
       </div>
@@ -12,12 +20,15 @@
         <input class="form-input" type="password" id="login-password" />
       </div>
       <div>
-        <button class="button-primary" type="submit">login</button>
+        <button id="loginBtn" class="button-primary" type="submit">login</button>
       </div>
+    
       <div>
         Don't have an account?
-        <button class="button-secondary">Create Account</button>
+        <button id="createBtn" class="button-secondary"><a href="/signup">Create Account</a></button>
       </div>
     </form>
   </div>
 </div>
+
+<script src="/js/login.js"></script>
