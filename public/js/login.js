@@ -1,13 +1,5 @@
-const createBtn = document.querySelector('#createBtn');
 const loginBtn = document.querySelector('#loginBtn')
 
-// singup Btn 
-createBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    // TODO: redirect to logout page
-    console.log('clicked')
-    window.location.href = '/'
-})
 
 loginBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -25,21 +17,15 @@ loginBtn.addEventListener('click', (event) => {
     }
 
     console.log(userData);
-    try {
+    
         fetch('/api/user', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(userData)
-        }).then(fetch('/'))
+        }).then(window.location.href = '/')
         .catch((err) => {
             console.error(err); 
         });
-    } catch (err) {
-        console.error(err); 
-    }
-
-
-
 });
