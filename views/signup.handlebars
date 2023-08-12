@@ -4,7 +4,7 @@
     <form>
       <div>
         <label for="signup-email">Email:</label>
-        <input type="text" id="signup-email" value="example@site.com" />
+        <input type="text" id="signup-email" placeholder="example@site.com" />
       </div>
       <div>
         <label for="signup-password">Choose a password:</label>
@@ -12,20 +12,22 @@
           class="form-input"
           type="password"
           id="signup-password"
-          value="must be at least 8 characters"
+          placeholder="Must be at least 8 characters"
         />
       </div>
       <div>
         <label for="signup-name">First name:</label>
-        <input type="text" id="signup-name" value="enter name" />
+        <input type="text" id="signup-name" placeholder="Enter name" />
       </div>
       <div>
         <label for="signup-location">City:</label>
-        <input type="text" id="signup-location" value="Portland" />
+        <input type="text" id="signup-location" placeholder="Zip Code" />
       </div>
       <div>
-        <button type="submit">create account</button>
+        <button id="submitBtn" type="submit">create account</button>
       </div>
     </form>
   </div>
 </div>
+
+<script src="/js/signup.js"></script>
