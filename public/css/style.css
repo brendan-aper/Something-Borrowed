@@ -1,3 +1,172 @@
-h1 {
-  text-align: center;
+:root {
+  --primary: #265552;
+  --secondary: #d8652d;
+  --sage: #98afae;
+  --grey: #eaeceb;
+  --cream: #f4f6f6;
+  --dark: #38302e;
+  --border-radius: 25px;
+}
+
+body {
+  background-color: var(--cream);
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  padding-bottom: 10px;
+  line-height: 1.5em;
+}
+
+.navbar {
+  width: 100%;
+  padding: 5%;
+  /* position: fixed; */
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  max-width: 80%;
+}
+
+nav a {
+  background-color: unset;
+  color: var(--dark);
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+main {
+  background-color: var(--grey);
+  padding: 5%;
+  border-radius: 35px 35px 0 0;
+}
+
+/* Links & Buttons */
+a {
+  text-decoration: none;
+}
+
+.primary-btn {
+  color: var(--cream);
+  background-color: var(--primary);
+}
+
+.secondary-btn {
+  color: var(--primary);
+  background-color: var(--grey);
+  outline: 1px solid var(--primary);
+}
+
+/* Forms styling */
+input {
+  border: 2px solid #98afae;
+}
+
+textarea:focus,
+input:focus,
+input[type]:focus,
+.uneditable-input:focus {
+  border-color: var(--secondary);
+  /* box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6); */
+  outline: none;
+}
+
+.form-label,
+.form-input,
+.form-textarea {
+  display: block;
+}
+
+.form-label {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.form-input {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+}
+
+#search-section {
+  margin: 5px;
+  max-width: 500px;
+}
+
+#search-section input {
+  width: 80%;
+  height: 40px;
+  padding: 10px;
+  color: var(--dark);
+  background: url(images/comment-author.gif) no-repeat scroll 7px 7px;
+  padding-left: 30px;
+  border-radius: 50px;
+}
+
+.category-btn {
+  padding: 5px 10px;
+  color: var(--primary);
+  background-color: var(--cream);
+  border: 1px solid var(--cream);
+  border-radius: var(--border-radius);
+  /* Move to root styles? */
+  -webkit-box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11);
+  -moz-box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11);
+  box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11);
+}
+
+.category-btn:hover {
+  /* color: var(--cream); */
+  border: 1px solid #ffffff;
+  background-color: #eaeceb;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.category-btn:active {
+  color: var(--cream);
+  background-color: var(--primary);
+}
+
+/* Item listing card */
+.item-card {
+  display: flex;
+  padding: 2%;
+}
+
+.card-image {
+  width: 50%;
+  margin: 2%;
+  /* TODO: Move box shadow & border radius to root styles? */
+  border-radius: 20px;
+  -webkit-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
+  -moz-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
+  box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
+}
+
+.card-image img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.card-details {
+  width: 50%;
+  margin: 2%;
+  /* background-color: (var(--dark));
+  border-radius: var(--border-radius); */
 }
