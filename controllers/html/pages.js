@@ -26,12 +26,14 @@ router.get("/", async (req, res) => {
 // get single listing
 router.get("/item/:id", async (req, res) => {
   try {
-    const itemData = await Item.findByPk(req.params.id);
+    const itemData = await Item.findByPk(req.params.id, {
+      include: [User],
+    });
 
     if (itemData) {
-      const listing = itemData.get({ plain: true });
+      const item = itemData.get({ plain: true });
 
-      res.render("single-listing", { listing });
+      res.render("single-listing", { item, User });
     } else {
       res.status(404).end();
     }

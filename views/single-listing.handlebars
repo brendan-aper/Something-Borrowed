@@ -1,14 +1,15 @@
 <div id="singleListingContainer">
   <div id="singleListingImgContainer">
-    <img src="{{image}}" alt="{{title}}" />
+    <img src="{{item.image}}" alt="{{Item.title}}" />
   </div>
   <div id="listingInfoCard"></div>
   <div id="listerInfoContainer">
-    <ul>
-      {{! Add link to save button }}
-      <li><a href="" id="save-btn">SAVE</a></li>
-      <li><a href="" id="contact-btn">Contact Lender</a></li>
-    </ul>
+    {{! Add link to save button }}
+    <button class="btn primary-btn" id="save-btn">SAVE</button>
+    <a href="mailto:{{User.email}}"><button
+        class="btn primary-btn"
+        id="contact-btn"
+      >Contact Lender</button></a>
 
   </div>
 </div>
