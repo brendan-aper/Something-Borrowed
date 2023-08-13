@@ -1,14 +1,24 @@
 const router = require("express").Router();
 const { Item } = require("../../models");
 
-// get all listings for homepage
-router.get("/", async (req, res) => {
-  res.render("all-listings", { loggedIn: req.session.loggedIn });
-});
+// get all listings for home (explore) page
+// router.get("/", async (req, res) => {
+//   res.render("all-listings", { loggedIn: req.session.loggedIn });
+// });
 
-// get all listings for explore page
-router.get("/explore", async (req, res) => {
-  res.render("all-listings", { loggedIn: req.session.loggedIn });
+// Get all listings for home (explore) page
+router.get("/", async (req, res) => {
+  try {
+    const itemData = await Item.findAll();
+
+    console.log(itemData);
+
+    const listings = itemData.map((item) => item.get({ plain: true }));
+
+    res.render("explore", { listings });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // get single listing
