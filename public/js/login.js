@@ -1,31 +1,33 @@
 const loginBtn = document.querySelector("#login-btn");
 
-loginBtn.addEventListener("click", (event) => {
+const loginHandler = async function (event) {
   event.preventDefault();
 
   let email = document.querySelector("#login-email").value;
   let password = document.querySelector("#login-password").value;
-  let location = document.querySelector("#login-location").value;
-  let name = document.querySelector("#login-name").value;
+  // let location = document.querySelector("#login-location").value;
+  // let name = document.querySelector("#login-name").value;
 
   let userData = {
-    first_name: name,
+    // first_name: name,
     email: email,
     password: password,
-    location: location,
+    // location: location,
   };
 
-  console.log(userData);
-
-  fetch("/api/user", {
+  const response = await fetch("/api/user/login", {
     method: "POST",
     headers: {
       "Content-type": "application/json",
     },
     body: JSON.stringify(userData),
-  })
-    .then((window.location.href = "/"))
-    .catch((err) => {
-      console.error(err);
-    });
-});
+  });
+
+  if (response.ok) {
+    document.location.replace("/explore");
+  } else {
+    alert("Failed to login");
+  }
+};
+// Add event listener to login button
+loginBtn.addEventListener("click", loginHandler);
