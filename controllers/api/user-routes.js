@@ -10,14 +10,14 @@ router.get("/", async (req, res) => {
 // create user
 router.post("/", async (req, res) => {
   try {
-    const postText = await User.create(req.body);
-    console.log("post created");
+    const newUser = await User.create(req.body);
 
-    console.log(postText.id);
+    console.log("New user was created");
+    console.log(newUser.id);
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.user = postText.id;
+      req.session.user = newUser.id;
       console.log(
         "File: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie",
         req.session.cookie
@@ -45,14 +45,18 @@ router.get("/:id", async (req, res) => {
 
 // delete user
 router.delete("/:id", async (req, res) => {
-  const findUser = await User.destroy({
-    where: { id: req.params.id },
-  });
-  console.log(`User Deleted`);
-  res.json(findUser);
+  try {
+    const findUser = await User.destroy({
+      where: { id: req.params.id },
+    });
+    console.log(`User Deleted`);
+    res.json(`User Deleted`);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-// update post =  successful
+// update user =  successful
 router.put("/:id", async (req, res) => {
   try {
     const updateUser = await User.update(
@@ -86,6 +90,7 @@ router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
+      console.log("User has logged out");
     });
   } else {
     res.status(404).end();
