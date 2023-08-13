@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const categoryRoutes = require("./category-routes");
 const itemRoutes = require("./item-routes");
-const userRoutes = require("./users");
+const userRoutes = require("./user-routes");
 
 router.use("/category", categoryRoutes);
 router.use("/listing", itemRoutes);
