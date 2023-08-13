@@ -9,11 +9,12 @@
     {{#if loggedIn }}
     <nav class="navbar">
       <ul>
-        <li class="nav-btn">Explore</li>
-        <li class="nav-btn">Favorites</li>
-        <li class="nav-btn">My Listings</li>
-        <li class="nav-btn">Pending Requests</li>
-        <li class="nav-btn" id="logout-btn">Logout</li>
+        <li class="nav-btn"><a href="/">Explore</a></li>
+        <li class="nav-btn"><a href="/favorites">Favorites</a></li>
+        {{!-- dynamically pull in the user's id for these two url? --}}
+        <li class="nav-btn"><a href="/my-listings">My Listings</a></li>
+        <li class="nav-btn"><a href="/pending">Pending Requests</a></li>
+        <li class="nav-btn"><a href="/logout">Logout</a></li>
       </ul>
     </nav>
     {{ else }}
