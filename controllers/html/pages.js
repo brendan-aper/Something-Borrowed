@@ -1,11 +1,6 @@
 const router = require("express").Router();
 const { Item, User } = require("../../models");
 
-// get all listings for home (explore) page
-// router.get("/", async (req, res) => {
-//   res.render("all-listings", { loggedIn: req.session.loggedIn });
-// });
-
 // Get all listings for home (explore) page
 router.get("/", async (req, res) => {
   try {

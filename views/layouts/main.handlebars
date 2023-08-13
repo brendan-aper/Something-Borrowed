@@ -23,9 +23,12 @@
 
       <nav class="navbar">
       <ul>
-        {{! Make route for "/" in home-routes.js to show feed to logged out user }}
-        <li class="nav-button">Explore</li>
-        <li class="nav-button">Log Out</li>
+        <li class="nav-btn"><a href="/">Explore</a></li>
+        <li class="nav-btn"><a href="/favorites">Favorites</a></li>
+        {{!-- dynamically pull in the user's id for these two url? --}}
+        <li class="nav-btn"><a href="/my-listings">My Listings</a></li>
+        <li class="nav-btn"><a href="/pending">Pending Requests</a></li>
+        <li class="nav-btn"><a href="/logout">Logout</a></li>
       </ul>
     </nav>
     {{/if}}
