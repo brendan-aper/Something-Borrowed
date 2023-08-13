@@ -55,7 +55,7 @@ router.delete("/:id", async (req, res) => {
 // update post =  successful
 router.put("/:id", async (req, res) => {
   try {
-    const updatePost = await User.update(
+    const updateUser = await User.update(
       {
         first_name: req.body.first_name,
         location: req.body.location,
