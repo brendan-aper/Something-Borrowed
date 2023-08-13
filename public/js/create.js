@@ -1,3 +1,5 @@
+const createBtn = document.getElementById("create-btn");
+
 const createHeandler = async function (event) {
   event.preventDefault();
 
@@ -25,5 +27,4 @@ const createHeandler = async function (event) {
 };
 
 // Event listener on create button
-const createBtn = document.getElementById("create-btn");
 createBtn.addEventListener("click", createHeandler);
