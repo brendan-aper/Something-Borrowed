@@ -28,6 +28,11 @@ h6 {
   line-height: 1.5em;
 }
 
+h1 {
+  color: var(--primary);
+  padding: 10px;
+}
+
 .navbar {
   width: 90%;
   padding: 5%;
