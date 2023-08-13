@@ -1,6 +1,12 @@
 const authorize = (req, res, next) => {
-  // TODO: If the user is not logged in, redirect the user to the login page
-  // TODO: If the user is logged in, allow them to view the main layout
+  // Authorize a user to create, edit and delete
+
+  // Still unsure about if this works yet
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+  } else {
+    next();
+  }
 };
 
 module.exports = authorize;
