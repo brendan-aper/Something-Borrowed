@@ -15,9 +15,9 @@ router.get("/", async (req, res) => {
 
     console.log(itemData);
 
-    const listings = itemData.map((item) => item.get({ plain: true }));
+    const items = itemData.map((item) => item.get({ plain: true }));
 
-    res.render("all-listings", { listings });
+    res.render("all-listings", { items, User });
   } catch (err) {
     res.status(500).json(err);
   }
