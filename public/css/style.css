@@ -56,6 +56,14 @@ main {
 }
 
 /* Links & Buttons */
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  color: var(--secondary);
+}
+
 .btn {
   padding: 10px 30px;
   height: 40px;
