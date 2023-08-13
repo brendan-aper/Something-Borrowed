@@ -24,15 +24,15 @@ const updateHandler = async function () {
     body: JSON.stringify(itemData),
   });
 
-  document.location.replace("/dashboard");
+  document.location.replace("/explore");
 };
 
 const deleteHandler = async function () {
-  await fetch(`/api/post/${postId}`, {
-    method: 'DELETE'
+  await fetch(`/api/post/${item.id}`, {
+    method: "DELETE",
   });
 
-  document.location.replace('/dashboard');
+  document.location.replace("/explore");
 };
 
 // Event listener on update-form
