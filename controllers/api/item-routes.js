@@ -18,8 +18,8 @@ router.get('/:id', async (req, res) => {
 // POST a new item
 router.post('/', (req, res) => {
   const newItem = req.body;
-  newItem.id = item.length + 1;
-  item.push(newItem);
+  newItem.id = Item.length + 1;
+  Item.push(newItem);
   res.status(201).json(newItem);
 });
 
