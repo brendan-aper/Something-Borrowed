@@ -29,7 +29,7 @@ h6 {
 }
 
 .navbar {
-  width: 100%;
+  width: 90%;
   padding: 5%;
   /* position: fixed; */
 }
@@ -37,7 +37,7 @@ h6 {
 nav ul {
   display: flex;
   justify-content: space-between;
-  max-width: 80%;
+  flex-wrap: wrap;
 }
 
 nav a {
