@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 
     const listings = itemData.map((item) => item.get({ plain: true }));
 
-    res.render("explore", { listings });
+    res.render("all-listings", { listings });
   } catch (err) {
     res.status(500).json(err);
   }

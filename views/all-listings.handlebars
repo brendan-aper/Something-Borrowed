@@ -1,6 +1,11 @@
-<div>
-  <h2>Hello World!</h2>
+{{! Saving the search bar and category buttons for if we have time (nice-to-have but not necessary right now) }}
+{{!-- <div id="search-bar">
+  <input type="text" name="search" value="search for an item" />
 </div>
+<div>
+  <p>Filter by category:</p>
+  {{> categories}}
+</div> --}}
 <div class="listings">
   {{#each items as |item|}}
     <article class="item-card">
