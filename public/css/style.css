@@ -56,10 +56,6 @@ main {
 }
 
 /* Links & Buttons */
-a {
-  text-decoration: none;
-}
-
 .btn {
   padding: 10px 30px;
   height: 40px;

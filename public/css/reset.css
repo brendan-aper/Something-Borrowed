@@ -76,7 +76,6 @@ ruby,
 section,
 summary,
 time,
-mark,
 audio,
 video {
   margin: 0;
@@ -103,9 +102,11 @@ section {
 body {
   line-height: 1;
 }
-ol,
+
 ul {
   list-style: none;
+  list-style-type: none;
+  text-decoration: none;
 }
 
 button {
@@ -113,3 +114,6 @@ button {
   outline: inherit;
 }
 
+a {
+  text-decoration: none;
+}
