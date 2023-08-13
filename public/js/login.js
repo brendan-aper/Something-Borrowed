@@ -1,4 +1,5 @@
 const loginBtn = document.querySelector("#login-btn");
+// const signupBtn = document.querySelector("#signup-btn");
 
 const loginHandler = async function (event) {
   event.preventDefault();
@@ -29,5 +30,13 @@ const loginHandler = async function (event) {
     alert("Failed to login");
   }
 };
+
+// const signupRedirect = function () {
+//   document.location.redirect("/signup");
+// };
+
 // Add event listener to login button
 loginBtn.addEventListener("click", loginHandler);
+
+// Add event listener to signup button
+// signupBtn.addEventListener("click", signupRedirect);

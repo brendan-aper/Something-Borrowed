@@ -6,6 +6,11 @@ router.get("/", async (req, res) => {
   res.render("all-listings", { loggedIn: req.session.loggedIn });
 });
 
+// get all listings for explore page
+router.get("/explore", async (req, res) => {
+  res.render("all-listings", { loggedIn: req.session.loggedIn });
+});
+
 // get single listing
 router.get("/item/:id", async (req, res) => {
   try {
