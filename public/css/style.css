@@ -66,6 +66,7 @@ main {
 .primary-btn {
   color: var(--cream);
   background-color: var(--primary);
+  border: 1px solid var(--primary);
 }
 
 .primary-btn:hover {
@@ -190,4 +191,14 @@ input[type]:focus,
   margin: 2%;
   /* background-color: (var(--dark));
   border-radius: var(--border-radius); */
+}
+
+/* Single Listing Page */
+#listing-hero img {
+  width: 100%;
+  /* height: 500px; */
+}
+
+#listing-details {
+  padding: 40px 0;
 }

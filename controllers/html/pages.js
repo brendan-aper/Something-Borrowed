@@ -31,6 +31,7 @@ router.get("/item/:id", async (req, res) => {
     });
 
     if (itemData) {
+      // const item = itemData.map((item) => item.get({ plain: true }));
       const item = itemData.get({ plain: true });
 
       res.render("single-listing", { item, User });
