@@ -93,8 +93,9 @@ a {
 input {
   border: 2px solid #98afae;
   border-radius: var(--border-radius-button);
-  padding: 0 20px;
+  padding: 20px;
   height: 40px;
+  width: 300px;
 }
 
 textarea:focus,
@@ -103,6 +104,10 @@ input[type]:focus,
 .uneditable-input:focus {
   border-color: var(--secondary);
   outline: none;
+}
+
+.input-section {
+  margin-bottom: 15px;
 }
 
 /* .form-input {
