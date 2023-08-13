@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Item } = require("../../models");
+const { Item, User } = require("../../models");
 
 // get all listings for home (explore) page
 // router.get("/", async (req, res) => {
@@ -9,7 +9,9 @@ const { Item } = require("../../models");
 // Get all listings for home (explore) page
 router.get("/", async (req, res) => {
   try {
-    const itemData = await Item.findAll();
+    const itemData = await Item.findAll({
+      include: [User],
+    });
 
     console.log(itemData);
 
