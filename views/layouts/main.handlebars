@@ -19,7 +19,8 @@
         {{!-- dynamically pull in the user's id for these two url? --}}
         <li class="nav-btn"><a href="/my-listings">My Listings</a></li>
         <li class="nav-btn"><a href="/pending">Pending Requests</a></li>
-        <li class="nav-btn"><a href="/logout">Logout</a></li>
+        <li class="nav-btn"><a href="/create">Create Listing</a></li>
+        <li class="nav-btn"><a href="/">Logout</a></li>
       </ul>
     </nav>
     {{ else }}
@@ -31,14 +32,20 @@
         {{!-- dynamically pull in the user's id for these two url? --}}
         <li class="nav-btn"><a href="/my-listings">My Listings</a></li>
         <li class="nav-btn"><a href="/pending">Pending Requests</a></li>
-        <li class="nav-btn"><a href="/logout">Logout</a></li>
+        <li class="nav-btn"><a href="/create">Create Listing</a></li>
+        <li class="nav-btn"><a href="/login">Log In</a></li>
       </ul>
     </nav>
     {{/if}}
     <main>
       {{{body}}}
     </main>
+
+    <script src="/js/logout.js"></script>
 </body>
 
+
   </body>
+
 </html>
+

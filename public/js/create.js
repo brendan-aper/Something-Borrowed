@@ -1,29 +1,51 @@
 const createBtn = document.getElementById("create-btn");
 
+let imgURL;
+
+// initalizes the cloudinary widget in memory
+var myWidget = cloudinary.createUploadWidget({
+  cloudName: 'du1rn35uq', 
+  uploadPreset: 'somethingBorrowed'
+}, (error, result) => { 
+    if (!error && result && result.event === "success") { 
+      console.log('Done!'); 
+      imgURL = result.info.secure_url;
+    }
+  }
+)
+
+document.querySelector('.cloudinary-button').addEventListener('click', function(event) {
+  event.preventDefault();
+  myWidget.open()
+}, false);
+
 const createHeandler = async function (event) {
   event.preventDefault();
 
-  let title = document.querySelector("item-title").value;
-  let description = document.querySelector("item-description").value;
-  let location = document.querySelector("item-location").value;
-  let category = document.querySelector("item-category").value;
-  let image = document.querySelector("item-image").value;
+  let title = document.querySelector("#item-title").value;
+  let description = document.querySelector("#item-description").value;
+  // let location = document.querySelector("item-location").value;
+  // let category = document.querySelector("item-category").value;
 
   let itemData = {
     title: title,
     descpription: description,
-    location: location,
-    category: category,
-    image: image,
+    // location: location,
+    // category: category,
+    image: imgURL,
   };
 
-  await fetch(`/api/post`, {
+  console.log(itemData)
+
+
+
+  await fetch(`/api/item`, {
     method: "POST",
-    body: JSON.stringify(itemData),
     headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(itemData)
   });
 
-  document.location.replace("/dashboard");
+  // document.location.replace("/dashboard");
 };
 
 // Event listener on create button

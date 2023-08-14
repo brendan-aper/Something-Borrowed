@@ -1,3 +1,5 @@
+
+{{!-- {{#if loggedIn}} --}}
 <div class="listing card">
   <div class="card-header">
     <h2>Create New Listing</h2>
@@ -7,21 +9,31 @@
     <input
       type="text"
       name="post-title"
+      id="item-title"
       class="form-input"
-      value="enter title"
+      placeholder="Enter title"
     />
     <label class="form-label" for="post-desc">Description</label>
     <textarea
       name="post-desc"
       class="form-input"
+      id="item-description"
       aria-valuemax="maxiumum 300 characters"
     ></textarea>
+    <button class="cloudinary-button" id="search">Search File</button>
     <label class="form-label" for="post-category">Choose category</label>
     <select id="category-select" name="post-category">
       {{#each categories as |category|}}
         <option value="{{id}}">{{name}}</option>
       {{/each}}
     </select>
-    <button type="submit" class="button">Create Listing</button>
+    <button id="create-btn" type="submit" class="button">Create Listing</button>
   </form>
 </div>
+{{!-- {{else}} --}}
+<p>Log in to post an item!</p>
+
+{{!-- {{/if}} --}}
+
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script> 
+<script src="/js/create.js"></script>
