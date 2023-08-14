@@ -36,6 +36,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+//login
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
@@ -69,7 +70,6 @@ router.post('/login', async (req, res) => {
     res.status(500).json(err);
   }
 })
-
 
 // get single user
 router.get("/:id", async (req, res) => {
