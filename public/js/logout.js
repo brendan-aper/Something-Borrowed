@@ -1,6 +1,6 @@
-const loginBtn = document.getElementById("logout-btn");
+const logoutBtn = document.getElementById("logout-btn");
 
-loginBtn.addEventListener("click", (event) => {
+logoutBtn.addEventListener("click", (event) => {
   event.preventDefault();
 
   fetch("/api/user/logout", {
@@ -9,7 +9,8 @@ loginBtn.addEventListener("click", (event) => {
       "Content-type": "application/json",
     },
   })
-    .then(document.location.replace("/"))
+    .then(console.log("User has logged out"))
+
     .catch((err) => {
       console.error(err);
     });

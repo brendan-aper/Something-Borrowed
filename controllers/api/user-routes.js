@@ -54,8 +54,6 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    console.log(dbUserData)
-
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.user = dbUserData;
@@ -127,7 +125,6 @@ router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
-      console.log("User has logged out");
     });
   } else {
     res.status(404).end();
