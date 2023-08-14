@@ -42,6 +42,7 @@ router.get('/:id', async (req, res) => {
     res.json(singleUser)
 })
 
+
 // delete user
 router.delete('/:id', async (req, res) => {
     const findUser = await User.destroy({ 

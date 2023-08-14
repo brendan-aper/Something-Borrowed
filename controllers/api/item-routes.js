@@ -1,7 +1,6 @@
 const express = require("express");
 const { Item } = require("../../models");
 const router = express.Router();
-const authorize = require("../../utils/auth");
 
 // GET all item
 router.get("/", async (req, res) => {
@@ -17,16 +16,18 @@ router.get("/:id", async (req, res) => {
 });
 
 // POST a new item
-router.post("/", authorize, (req, res) => {
-  const newItem = req.body;
-  newItem.id = Item.length + 1;
-  Item.push(newItem);
-  res.status(201).json(newItem);
-});
+router.post('/', async (req, res) => {
 
+  let itemData = {...req.body, user_id: id}
+  // user ID and post ID passed in from post 
+  await Item.create(itemData)
+  console.log('Created new item');
+  res.status(200).json(itemData)
+
+})
 // DELETE a item
-router.delete("/:id", authorize, async (req, res) => {
-  const finditem = await Item.destroy({
+router.delete("/:id", async (req, res) => {
+  const findItem = await Item.destroy({
     where: { id: req.params.id },
   });
   console.log(`Item Deleted`);
@@ -35,7 +36,7 @@ router.delete("/:id", authorize, async (req, res) => {
 
 // Updating a item
 // update post =  successful
-router.put("/:id", authorize, async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const updateItem = await Item.update(
       {

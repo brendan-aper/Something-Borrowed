@@ -36,6 +36,43 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.post('/login', async (req, res) => {
+  try {
+    const dbUserData = await User.findOne({
+      where: {
+        email: req.body.email,
+      },
+      attributes: {
+        exclude: ["password"]
+      }
+    });
+
+    if (!dbUserData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
+      return;
+    }
+
+    console.log(dbUserData)
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      req.session.user = dbUserData;
+      console.log(
+        'File: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
+        req.session.cookie
+      );
+
+      res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
+
 // get single user
 router.get("/:id", async (req, res) => {
   const singleUser = await User.findByPk(req.params.id);
