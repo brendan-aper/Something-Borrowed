@@ -18,8 +18,9 @@ router.get("/:id", async (req, res) => {
 // POST a new item
 router.post('/', async (req, res) => {
 
-  let itemData = {...req.body, user_id: id}
+  let itemData = {...req.body, user_id: req.session.user.id}
   // user ID and post ID passed in from post 
+  console.log(itemData)
   await Item.create(itemData)
   console.log('Created new item');
   res.status(200).json(itemData)

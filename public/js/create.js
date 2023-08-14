@@ -1,5 +1,6 @@
 const createBtn = document.getElementById("create-btn");
 
+// global variable
 let imgURL;
 
 // initalizes the cloudinary widget in memory
@@ -24,20 +25,19 @@ const createHeandler = async function (event) {
 
   let title = document.querySelector("#item-title").value;
   let description = document.querySelector("#item-description").value;
-  // let location = document.querySelector("item-location").value;
-  // let category = document.querySelector("item-category").value;
+  let location = document.querySelector("#item-location").value;
+  let category = document.querySelector("#item-category").value;
 
   let itemData = {
     title: title,
-    descpription: description,
-    // location: location,
-    // category: category,
+    description: description,
+    location: location,
+    category: category,
     image: imgURL,
   };
 
+
   console.log(itemData)
-
-
 
   await fetch(`/api/item`, {
     method: "POST",
@@ -45,7 +45,7 @@ const createHeandler = async function (event) {
     body: JSON.stringify(itemData)
   });
 
-  // document.location.replace("/dashboard");
+  // // document.location.replace("/dashboard");
 };
 
 // Event listener on create button
