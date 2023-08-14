@@ -12,7 +12,24 @@ router.get("/", async (req, res) => {
 
     const items = itemData.map((item) => item.get({ plain: true }));
 
-    res.render("all-listings", { items, User });
+    res.render("all-listings", { items, User, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Get all listings for home (explore) page
+router.get("/explore", async (req, res) => {
+  try {
+    const itemData = await Item.findAll({
+      include: [User],
+    });
+
+    console.log(itemData);
+
+    const items = itemData.map((item) => item.get({ plain: true }));
+
+    res.render("all-listings", { items, User, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -26,8 +43,12 @@ router.get("/item/:id", async (req, res) => {
     });
 
     if (itemData) {
-      // const item = itemData.map((item) => item.get({ plain: true }));
-      const item = itemData.get({ plain: true });
+      const item = itemData.map((item) => item.get({ plain: true }));
+      // const item = itemData.get({ plain: true });
+      res.render('all-listings', item)
+    }} catch (err) 
+    {console.error(err)}
+  })
 
 // get all posts for homepage
 router.get('/', async (req, res) => {
@@ -43,4 +64,15 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
+
+// favorites page
+router.get('/favorites', (req, res) => {
+  res.render('favorite')
+})
+
+
+// my-listings
+router.get('/create', (req, res) => {
+  res.render('create-listing')
+})
 module.exports = router;

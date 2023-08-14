@@ -20,7 +20,7 @@ Item.init({
     },
     location: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     category_id: {
         type: DataTypes.INTEGER,
