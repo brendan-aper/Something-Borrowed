@@ -66,7 +66,11 @@ router.get("/login", async (req, res) => {
 
 router.get("/signup", async (req, res) => {
   res.render('signup')
-})
+});
+
+router.get("/pending", async (req, res) => {
+  res.render('pending')
+});
 
 
 // favorites page
