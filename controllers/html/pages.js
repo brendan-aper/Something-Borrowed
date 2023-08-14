@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Item, User } = require("../../models");
+const { Item, User, Category } = require("../../models");
 
 // Get all listings for home (explore) page
 router.get("/", async (req, res) => {
@@ -72,7 +72,12 @@ router.get('/favorites', (req, res) => {
 
 
 // my-listings
-router.get('/create', (req, res) => {
-  res.render('create-listing')
+router.get('/create', async (req, res) => {
+  const allCategories = await Category.findAll();
+  let categories = allCategories.map((categories) => {
+    return categories.get({ plain: true})
+  })
+  console.log(categories)
+  res.render('create-listing', {loggedIn: req.session.loggedIn, categories})
 })
 module.exports = router;
