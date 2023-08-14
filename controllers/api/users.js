@@ -73,5 +73,3 @@ router.put('/:id', async (req, res) => {
     return res.status(500).json({ error: 'An error occurred while creating the user.' });
   }})
 
-
-module.exports = router;

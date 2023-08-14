@@ -1,12 +1,26 @@
-<div class="listings">
+{{! Saving the search bar and category buttons for if we have time (nice-to-have but not necessary right now) }}
+{{!-- <div id="search-bar">
+  <input type="text" name="search" value="search for an item" />
+</div>
+<div>
+  <p>Filter by category:</p>
+  {{> categories}}
+</div> --}}
+<div>
+  <p>Viewing All Listings</p>
+</div>
+<div class="listings-grid">
   {{#each items as |item|}}
     <article class="item-card">
       <div class="card-image">
         <img src="{{image}}" alt="{{title}}" />
       </div>
-      <div class="card-header">
-        <h2>From {{User.first_name}}</h2>
+      <div class="card-details">
+        <h2>
+          <a href="/item/{{id}}">{{title}}</a>
+        </h2>
         <p>{{description}}</p>
+        <p class="lendee-info">Lended by: {{User.first_name}}</p>
       </div>
     </article>
   {{/each}}

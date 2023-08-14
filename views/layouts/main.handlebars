@@ -2,25 +2,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <title>Something Borrowed</title>
   </head>
   <body>
+    <div>
+      <h1>Something Borrowed</h1>
+    </div>
     {{#if loggedIn }}
     <nav class="navbar">
       <ul>
-        {{! Make route for "/" in home-routes.js to show feed to logged out user }}
-        <li class="nav-button">Explore</li>
-        <li class="nav-button">Login</li>
+        <li class="nav-btn"><a href="/">Explore</a></li>
+        <li class="nav-btn"><a href="/favorites">Favorites</a></li>
+        {{!-- dynamically pull in the user's id for these two url? --}}
+        <li class="nav-btn"><a href="/my-listings">My Listings</a></li>
+        <li class="nav-btn"><a href="/pending">Pending Requests</a></li>
+        <li class="nav-btn"><a href="/logout">Logout</a></li>
       </ul>
     </nav>
     {{ else }}
 
       <nav class="navbar">
       <ul>
-        {{! Make route for "/" in home-routes.js to show feed to logged out user }}
-        <li class="nav-button">Explore</li>
-        <li class="nav-button">Log Out</li>
+        <li class="nav-btn"><a href="/">Explore</a></li>
+        <li class="nav-btn"><a href="/favorites">Favorites</a></li>
+        {{!-- dynamically pull in the user's id for these two url? --}}
+        <li class="nav-btn"><a href="/my-listings">My Listings</a></li>
+        <li class="nav-btn"><a href="/pending">Pending Requests</a></li>
+        <li class="nav-btn"><a href="/logout">Logout</a></li>
       </ul>
     </nav>
     {{/if}}

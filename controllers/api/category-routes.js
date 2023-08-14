@@ -1,16 +1,14 @@
 const router = require("express").Router();
 const { Category, Item } = require("../../models");
+const authorize = require("../../utils/auth");
 
 // The `/api/categories` endpoint
 
 // Get all categories from database
 router.get("/", async (req, res) => {
-  // const allCategories = await Category.findAll();
-  // console.log('found all categories');
-  // res.json(allCategories)
   try {
     const categoryData = await Category.findAll({
-      include: Item
+      include: Item,
     });
 
     if (!categoryData) {
@@ -43,26 +41,25 @@ router.get("/:id", async (req, res) => {
 });
 
 // Create new category
-router.post("/", async (req, res) => {
+router.post("/", authorize, async (req, res) => {
   try {
     const categoryData = await Category.create(req.body);
 
-    res
-      .status(200)
-      .json(`Category ${categoryData.name} has been created.`);
+    res.status(200).json(`Category ${categoryData.name} has been created.`);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.delete('/:id', async (req, res) => {
+// Delete category - I don't think we need to allow this?
+router.delete("/:id", authorize, async (req, res) => {
   try {
-    await Category.destroy({where: {id: req.params.id}})
-    console.log('deleted');
-    res.json('deleted')
+    await Category.destroy({ where: { id: req.params.id } });
+    console.log("deleted");
+    res.json("deleted");
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
-})
+});
 
 module.exports = router;

@@ -18,10 +18,6 @@ Item.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    price: {
-        type: DataTypes.DECIMAL,
-        allowNull: false
-    },
     location: {
         type: DataTypes.STRING,
         allowNull: false

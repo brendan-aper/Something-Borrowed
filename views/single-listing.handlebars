@@ -1,0 +1,18 @@
+<div id="single-listing-pg">
+  <div id="listing-hero">
+    <img src="{{item.image}}" alt="{{item.title}}" />
+  </div>
+  <div id="listing-details">
+    <h2>{{item.title}}</h2>
+    <p>{{item.description}}</p>
+  </div>
+  <div id="listing-links">
+    {{! Add link to save button }}
+    <button class="btn primary-btn" id="save-btn">SAVE</button>
+    <a href="mailto:{{User.email}}"><button
+        class="btn primary-btn"
+        id="contact-btn"
+      >Contact Lender</button></a>
+
+  </div>
+</div>

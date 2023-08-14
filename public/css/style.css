@@ -1,3 +1,217 @@
+:root {
+  --primary: #265552;
+  --secondary: #d8652d;
+  --sage: #98afae;
+  --grey: #eaeceb;
+  --cream: #f4f6f6;
+  --dark: #38302e;
+  --border-radius: 25px;
+  --border-radius-button: 50px;
+}
+
+body {
+  background-color: var(--cream);
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  padding-bottom: 10px;
+  line-height: 1.5em;
+}
+
 h1 {
-  text-align: center;
+  color: var(--primary);
+  padding: 10px;
+}
+
+.navbar {
+  width: 90%;
+  padding: 5%;
+  /* position: fixed; */
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+nav a {
+  background-color: unset;
+  color: var(--dark);
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+main {
+  background-color: var(--grey);
+  padding: 5%;
+  border-radius: 35px 35px 0 0;
+}
+
+/* Links & Buttons */
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  color: var(--secondary);
+}
+
+.btn {
+  padding: 10px 30px;
+  height: 40px;
+  border-radius: var(--border-radius-button);
+  border: none;
+}
+
+.primary-btn {
+  color: var(--cream);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.primary-btn:hover {
+  color: var(--primary);
+  background-color: var(--grey);
+  border: 1px solid var(--primary);
+}
+
+.secondary-btn {
+  color: var(--primary);
+  background-color: var(--grey);
+  outline: 1px solid var(--primary);
+}
+
+.secondary-btn:hover {
+  color: var(--cream);
+  background-color: var(--primary);
+}
+
+/* Forms styling */
+input {
+  border: 2px solid #98afae;
+  border-radius: var(--border-radius-button);
+  padding: 20px;
+  height: 40px;
+  width: 300px;
+}
+
+textarea:focus,
+input:focus,
+input[type]:focus,
+.uneditable-input:focus {
+  border-color: var(--secondary);
+  outline: none;
+}
+
+.input-section {
+  margin-bottom: 15px;
+}
+
+/* .form-input {
+  display: block;
+} */
+
+.form-label {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.form-input {
+  border: 2px solid #98afae;
+  border-radius: var(--border-radius-button);
+  padding: 0 20px;
+  margin: 10px 0;
+  height: 40px;
+}
+
+#search-section {
+  margin: 5px;
+  max-width: 500px;
+}
+
+#search-section input {
+  width: 80%;
+  height: 40px;
+  padding: 10px;
+  color: var(--dark);
+  background: url(images/comment-author.gif) no-repeat scroll 7px 7px;
+  padding-left: 30px;
+  border-radius: 50px;
+}
+
+.category-btn {
+  padding: 5px 10px;
+  color: var(--primary);
+  background-color: var(--cream);
+  border: 1px solid var(--cream);
+  border-radius: var(--border-radius);
+  /* Move to root styles? */
+  -webkit-box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11);
+  -moz-box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11);
+  box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11);
+}
+
+.category-btn:hover {
+  /* color: var(--cream); */
+  border: 1px solid #ffffff;
+  background-color: #eaeceb;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.category-btn:active {
+  color: var(--cream);
+  background-color: var(--primary);
+}
+
+/* Item listing card */
+.item-card {
+  display: flex;
+  padding: 2%;
+}
+
+.card-image {
+  width: 50%;
+  margin: 2%;
+  /* TODO: Move box shadow & border radius to root styles? */
+  border-radius: 20px;
+  -webkit-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
+  -moz-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
+  box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
+}
+
+.card-image img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.card-details {
+  width: 50%;
+  margin: 2%;
+  /* background-color: (var(--dark));
+  border-radius: var(--border-radius); */
+}
+
+/* Single Listing Page */
+#listing-hero img {
+  width: 100%;
+  /* height: 500px; */
+}
+
+#listing-details {
+  padding: 40px 0;
 }
