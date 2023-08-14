@@ -1,17 +1,17 @@
-const logoutBtn = document.getElementById("logout-btn");
+const logoutBtn = async () => {
+  const response = await fetch('/api/user/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
 
-logoutBtn.addEventListener("click", (event) => {
-  event.preventDefault();
+  if (response.ok) {
+    document.location.replace('/');
+  } else {
+    alert('Failed to log out.')
+  }
+};
 
-  fetch("/api/user/logout", {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-  })
-    .then(console.log("User has logged out"))
-
-    .catch((err) => {
-      console.error(err);
-    });
-});
+const logoutBtnHandler = document.querySelector('#logout-btn');
+if (logoutBtnHandler) {
+  logoutBtnHandler.addEventListener('click', logoutBtn);
+}
