@@ -65,13 +65,21 @@ router.get("/login", async (req, res) => {
 });
 
 
+
+
 // favorites page
 router.get('/favorites', (req, res) => {
   res.render('favorite')
 })
 
-
 // my-listings
+router.get('/my-listings', async (req, res) => {
+  res.render('user-listings', {
+    user: req.session.user, Item
+  })
+})
+
+// create listing
 router.get('/create', async (req, res) => {
   const allCategories = await Category.findAll();
   let categories = allCategories.map((categories) => {
