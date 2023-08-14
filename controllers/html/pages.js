@@ -29,14 +29,10 @@ router.get("/item/:id", async (req, res) => {
       // const item = itemData.map((item) => item.get({ plain: true }));
       const item = itemData.get({ plain: true });
 
-      res.render("single-listing", { item, User });
-    } else {
-      res.status(404).end();
-    }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// get all posts for homepage
+router.get('/', async (req, res) => {
+    res.render('all-listings', {loggedIn: req.session.loggedIn})
+  })
 
 // login page
 router.get("/login", async (req, res) => {
@@ -47,12 +43,4 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
-// signup page
-router.get("/signup", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
-  res.render("signup");
-});
 module.exports = router;
