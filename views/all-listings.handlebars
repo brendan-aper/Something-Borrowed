@@ -13,7 +13,9 @@
   {{#each items as |item|}}
     <article class="item-card">
       <div class="card-image">
-        <img src="{{image}}" alt="{{title}}" />
+        <a href="/item/{{id}}">
+          <img src="{{image}}" alt="{{title}}" />
+        </a>
       </div>
       <div class="card-details">
         <h2>
