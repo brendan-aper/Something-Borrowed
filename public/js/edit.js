@@ -19,7 +19,7 @@ const updateHandler = async function () {
   console.log(itemData);
 
   await fetch(`/api/item/${item.id}`, {
-    method: "POST",
+    method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(itemData),
   });

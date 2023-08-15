@@ -12,7 +12,8 @@
         <p>{{description}}</p>
       </div>
       <div>
-        <a>Delete listing</a>
+         <form method="POST" action="/items/{{id}}?_method=DELETE">
+        <button id="delete-btn" type="submit">Delete Listing</button>
         <a>Edit listing</a>
       </div>
       
