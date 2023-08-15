@@ -129,14 +129,11 @@ router.get('/edit-listing/:id', async (req, res) => {
 
   try {
     const allItems = await Item.findByPk(itemId );
-    console.log("\n\nall items is \n",allItems,"\n\n\n")
     if (!allItems) {
       // Handle listing not found
-      console.log("rerouting")
       return res.redirect('/my-listings');
     }else{
        const editItem=allItems.get({ plain: true})
-      console.log("edit item is \n\n", editItem)
       res.render('edit-listing', { layout: 'main', itemId, editItem });
     }
    
