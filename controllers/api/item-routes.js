@@ -65,4 +65,22 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+// router.put('/:post_id', (req, res) => {
+//   const post_id = parseInt(req.params.post_id);
+//   const { title, description } = req.body;
+
+//   // Find the listing by ID
+//   const listing = listings.find(item => item.id === post_id);
+
+//   if (!listing) {
+//     return res.status(404).json({ error: 'Listing not found' });
+//   }
+
+//   // Update the listing
+//   listing.title = title;
+//   listing.description = description;
+
+//   return res.status(200).json({ message: 'Listing updated successfully', listing });
+// });
+
 module.exports = router;
