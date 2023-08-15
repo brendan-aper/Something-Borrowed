@@ -80,7 +80,31 @@ router.get("/pending", async (req, res) => {
 
 // favorites page
 router.get('/favorites', async (req, res) => {
-  res.render('favorite', { loggedIn: req.session.loggedIn})
+  const user = req.session.user.id;
+  const favorites = await Favorite.findAll({
+    where: {
+      user_id: user
+    }
+  })
+
+  // find all favs for that user
+  const favs = favorites.map((fav) => fav.get({ plain: true}))
+  console.log(favs)
+  // loop through favs to find blogPosts
+
+  let itemArray = [];
+  favs.forEach(async (element) => {
+    let findItem = await Item.findOne({
+      where: {
+        id: element.blogPost_id
+      }
+    });
+    let item = findItem.get({ plain:true })
+    itemArray.push(item)
+    console.log(itemArray)
+  })
+
+  res.render('favorite', { itemArray, loggedIn: req.session.loggedIn})
 });
 
 
