@@ -98,6 +98,31 @@ router.get('/my-listings', async (req, res) => {
   })
 })
 
+router.get('/edit-listing/:id', async (req, res) => {
+  const itemId = req.params.id;
+
+  try {
+    const allItems = await Item.findByPk(itemId );
+    console.log("\n\nall items is \n",allItems,"\n\n\n")
+    if (!allItems) {
+      // Handle listing not found
+      console.log("rerouting")
+      return res.redirect('/my-listings');
+    }else{
+       const editItem=allItems.get({ plain: true})
+      console.log("edit item is \n\n", editItem)
+      res.render('edit-listing', { layout: 'main', itemId, editItem });
+    }
+   
+
+  
+  } catch (error) {
+    // Handle errors
+    console.error(error);
+    res.redirect('/my-listings');
+  }
+});
+
 // create listing
 router.get('/create', async (req, res) => {
   const allCategories = await Category.findAll();
