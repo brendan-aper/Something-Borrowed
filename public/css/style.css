@@ -100,7 +100,8 @@ a:hover {
 }
 
 /* Forms styling */
-input {
+input,
+textarea {
   border: 2px solid #98afae;
   border-radius: var(--border-radius-button);
   padding: 20px;

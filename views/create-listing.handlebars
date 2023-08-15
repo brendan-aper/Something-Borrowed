@@ -18,6 +18,7 @@
       <div class="input-section">
         <label class="form-label" for="post-desc">Description</label>
         <textarea
+        rows="6"
           name="post-desc"
           class="form-input"
           id="item-description"
@@ -26,23 +27,29 @@
 
       <div class="input-section">
         <label class="form-label" for="post-location">Location</label>
-        <textarea
+        <input
           name="post-location"
           class="form-input"
           id="item-Location"
           placeholder="Zip Code"
           aria-valuemax="maxiumum 5 characters"
-        ></textarea></div>
+        ></input></div>
 
-      <button class="cloudinary-button" id="search">Search File</button>
-      <label class="form-label" for="post-category">Choose category</label>
-      <select id="category-select" name="post-category">
-        {{#each categories as |category|}}
-          <option id="item-category" value="{{id}}">{{name}}</option>
-        {{/each}}
-      </select>
+      <div class="input-section">
+        <p>Add an item image:</p>
+        <button class="cloudinary-button" id="search">Search File</button>
+      </div>
 
-      <button id="create-btn" type="submit" class="button">Create Listing</button>
+      <div class="input-section">
+        <label class="form-label" for="post-category">Choose category</label>
+        <select id="category-select" name="post-category">
+          {{#each categories as |category|}}
+            <option id="item-category" value="{{id}}">{{name}}</option>
+          {{/each}}
+        </select></div>
+
+      <button id="create-btn" type="submit" class="btn primary-btn">Create
+        Listing</button>
     </form>
   </div>
 {{else}}
