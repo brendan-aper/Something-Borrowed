@@ -55,9 +55,9 @@ router.get("/item/:id", async (req, res) => {
 });
 
 // get all posts for homepage
-router.get('/', async (req, res) => {
-    res.render('all-listings', {loggedIn: req.session.loggedIn})
-  })
+router.get("/", async (req, res) => {
+  res.render("all-listings", { loggedIn: req.session.loggedIn });
+});
 
 // login page
 router.get("/login", async (req, res) => {
@@ -69,18 +69,17 @@ router.get("/login", async (req, res) => {
 });
 
 router.get("/signup", async (req, res) => {
-  res.render('signup')
+  res.render("signup");
 });
 
 router.get("/pending", async (req, res) => {
-  res.render('pending')
+  res.render("pending");
 });
 
-
 // favorites page
-router.get('/favorites', (req, res) => {
-  res.render('favorite')
-})
+router.get("/favorites", (req, res) => {
+  res.render("favorite");
+});
 
 // my-listings
 router.get('/my-listings', async (req, res) => {
@@ -99,7 +98,7 @@ router.get('/my-listings', async (req, res) => {
 })
 
 // create listing
-router.get('/create', async (req, res) => {
+router.get("/create", async (req, res) => {
   const allCategories = await Category.findAll();
   let categories = allCategories.map((categories) => {
     return categories.get({ plain: true})
