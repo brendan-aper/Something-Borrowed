@@ -80,8 +80,17 @@ router.get('/favorites', (req, res) => {
 
 // my-listings
 router.get('/my-listings', async (req, res) => {
+  const userId = req.session.user.id
+  console.log(userId)
+  const allItems = await Item.findAll({
+    where: { user_id: userId}
+  });
+
+  const myItems = allItems.map((item) => item.get({ plain: true }))
+  console.log(myItems)
+
   res.render('user-listings', {
-    user: req.session.user, Item
+    user: req.session.user, myItems, loggedIn: req.session.loggedIn
   })
 })
 
@@ -94,4 +103,5 @@ router.get('/create', async (req, res) => {
   console.log(categories)
   res.render('create-listing', {loggedIn: req.session.loggedIn, categories})
 })
+
 module.exports = router;
