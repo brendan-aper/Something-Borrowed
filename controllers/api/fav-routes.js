@@ -34,9 +34,9 @@ router.post("/", async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try { 
     const deleteFav = await Favorite.destroy({
-    where: {id: req.params.id}
+    where: {blogPost_id: req.params.id}
   });
-  res.status(200).json(deleteFav);}  
+  res.status(200).json(`deleted ${deleteFav}`);}  
   
   catch (err) {
     res.status(500).json(err);

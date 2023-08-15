@@ -3,7 +3,7 @@
 </div>
 <div class="listings-grid">
   {{#each itemArray as |item|}}
-    <article class="item-card">
+    <article class="item-card" id="{{id}}">
       <div class="card-image">
         <img src="{{image}}" alt="{{title}}" />
       </div>
@@ -12,8 +12,10 @@
           <a href="/item/{{id}}">{{title}}</a>
         </h2>
         <p>{{description}}</p>
-        <p class="lendee-info">Lended by: {{User.first_name}}</p>
       </div>
+      <p class="unsaveBtn">Unsave</p>
     </article>
   {{/each}}
 </div>
+
+<script src="/js/fav.js"></script>
