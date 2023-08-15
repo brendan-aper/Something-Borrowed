@@ -15,7 +15,7 @@
     <nav class="navbar">
       <ul>
         <li class="nav-btn"><a href="/">Explore</a></li>
-        <li class="nav-btn"><a href="/favorites">Favorites</a></li>
+        <li class="nav-btn"><a id="favorites" >Favorites</a></li>
         {{!-- dynamically pull in the user's id for these two url? --}}
         <li class="nav-btn"><a href="/my-listings">My Listings</a></li>
         <li class="nav-btn"><a href="/pending">Pending Requests</a></li>
@@ -36,7 +36,7 @@
     <main>
       {{{body}}}
     </main>
-
+    <script src="/js/index.js"></script>
     <script src="/js/logout.js"></script>
 </body>
 

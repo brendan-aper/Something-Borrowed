@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Item, User, Category } = require("../../models");
+const { Item, User, Category, Favorite } = require("../../models");
 
 // Get all listings for home (explore) page
 router.get("/", async (req, res) => {
@@ -77,9 +77,22 @@ router.get("/pending", async (req, res) => {
 });
 
 // favorites page
-router.get("/favorites", (req, res) => {
-  res.render("favorite");
-});
+router.get('/favorites', async (req, res) => {
+    try {
+      const favData = await Favorite.findAll();
+  
+      console.log(favData);
+  
+      const favs = favData.map((fav) => fav.get({ plain: true }));
+  
+      res.render('favorite', {favs, loggedIn: req.session.loggedIn})
+
+
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
 
 // my-listings
 router.get('/my-listings', async (req, res) => {
@@ -106,5 +119,6 @@ router.get("/create", async (req, res) => {
   console.log(categories)
   res.render('create-listing', {loggedIn: req.session.loggedIn, categories})
 })
+
 
 module.exports = router;

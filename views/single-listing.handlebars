@@ -12,7 +12,7 @@
     </div>
     <div id="listing-links">
       {{! Add link to save button }}
-      <button class="btn primary-btn" id="save-btn">SAVE</button>
+      <button class="btn primary-btn save-btn" id="{{item.id}}">Save</button>
       <a href="mailto:{{item.user.email}}"><button
           class="btn primary-btn"
           id="contact-btn"
@@ -21,3 +21,6 @@
     </div>
   </div>
 {{/if}}
+
+
+<script src="/js/save.js"></script>
