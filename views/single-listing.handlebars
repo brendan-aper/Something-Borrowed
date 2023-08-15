@@ -1,3 +1,4 @@
+{{#if loggedIn}}
 <div id="single-listing-pg">
   <div id="listing-hero">
     <img src="{{item.image}}" alt="{{item.title}}" />
@@ -9,10 +10,11 @@
   <div id="listing-links">
     {{! Add link to save button }}
     <button class="btn primary-btn" id="save-btn">SAVE</button>
-    <a href="mailto:{{User.email}}"><button
+    <a href="mailto:{{item.user.email}}"><button
         class="btn primary-btn"
         id="contact-btn"
       >Contact Lender</button></a>
 
   </div>
 </div>
+{{/if}}

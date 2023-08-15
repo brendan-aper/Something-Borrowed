@@ -43,12 +43,16 @@ router.get("/item/:id", async (req, res) => {
     });
 
     if (itemData) {
-      const item = itemData.map((item) => item.get({ plain: true }));
-      // const item = itemData.get({ plain: true });
-      res.render('all-listings', item)
-    }} catch (err) 
-    {console.error(err)}
-  })
+      const item = itemData.get({ plain: true });
+      console.log(item)
+      res.render("single-listing", { item, User, loggedIn: req.session.loggedIn });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // get all posts for homepage
 router.get('/', async (req, res) => {
