@@ -23,7 +23,9 @@ Favorite.init({
 }, {
     sequelize,
     freezeTableName: true,
-    underscored: true,
+    underscored: false,
+    createdAt: false,
+    updatedAt: false,
     modelName: 'favorite'
 });
 
