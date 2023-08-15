@@ -1,6 +1,6 @@
 const sequelize = require("../config/connection");
 // import models
-const { User, Category, Item } = require("../models");
+const { User, Category, Item, Favorite } = require("../models");
 
 const userData = [
   {
@@ -23,6 +23,13 @@ const categoryData = [
   { name: "Yard" },
   { name: "Kitchen" },
   { name: "Games" },
+];
+
+const favData = [
+  {
+    user_id: 1,
+    blogPost_id: 1
+  }
 ];
 
 const itemData = [
@@ -56,6 +63,8 @@ async function seedDatabase() {
     await Category.bulkCreate(categoryData);
 
     await Item.bulkCreate(itemData);
+
+    await Favorite.bulkCreate(favData)
 
     console.log(`Seed database successfully created.`);
   } catch (err) {

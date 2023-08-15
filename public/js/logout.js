@@ -1,4 +1,5 @@
 const logoutBtn = async () => {
+  localStorage.clear();
   const response = await fetch('/api/user/logout', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
