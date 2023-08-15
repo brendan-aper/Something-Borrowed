@@ -1,9 +1,11 @@
-<p>Welcome {{ user.first_name }}</p>
+<p>Welcome {{user.first_name}}</p>
 <div class="listings-grid">
   {{#each myItems as |item|}}
     <article class="item-card">
       <div class="card-image">
-        <img src="{{image}}" alt="{{title}}" />
+        <a href="/item/{{id}}">
+          <img src="{{image}}" alt="{{title}}" />
+        </a>
       </div>
       <div class="card-details">
         <h2>
@@ -15,7 +17,7 @@
         <a>Delete listing</a>
         <a>Edit listing</a>
       </div>
-      
+
     </article>
   {{/each}}
 </div>
