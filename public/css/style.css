@@ -99,6 +99,18 @@ a:hover {
   background-color: var(--primary);
 }
 
+.secondary-btn:hover {
+  color: var(--cream);
+  background-color: var(--primary);
+  outline: 1px solid var(--primary);
+}
+
+.disabled-btn {
+  color: #929195;
+  background-color: var(--grey);
+  outline: 1px solid #929195;
+}
+
 /* Forms styling */
 input,
 textarea {

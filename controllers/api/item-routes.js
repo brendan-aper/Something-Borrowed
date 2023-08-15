@@ -16,16 +16,14 @@ router.get("/:id", async (req, res) => {
 });
 
 // POST a new item
-router.post('/', async (req, res) => {
-
-  let itemData = {...req.body, user_id: req.session.user.id}
-  // user ID and post ID passed in from post 
-  console.log(itemData)
-  await Item.create(itemData)
-  console.log('Created new item');
-  res.status(200).json(itemData)
-
-})
+router.post("/", async (req, res) => {
+  let itemData = { ...req.body, user_id: req.session.user.id };
+  // user ID and post ID passed in from post
+  console.log(itemData);
+  await Item.create(itemData);
+  console.log("Created new item");
+  res.status(200).json(itemData);
+});
 // DELETE a item
 router.delete("/:id", async (req, res) => {
   const findItem = await Item.destroy({
@@ -43,8 +41,8 @@ router.put("/:id", async (req, res) => {
       {
         title: req.body.title,
         description: req.body.description,
-        price: req.body.price,
         location: req.body.location,
+        isAvailable: req.body.isAvailable,
       },
       {
         where: {
@@ -53,7 +51,7 @@ router.put("/:id", async (req, res) => {
       }
     );
     console.log("updated");
-    res.json("updated item");
+    res.json("updated item" + updateItem);
   } catch (err) {
     if (err.name === "SequelizeUniqueConstraintError") {
       return res.status(400).json({ error: "Not enough information" });

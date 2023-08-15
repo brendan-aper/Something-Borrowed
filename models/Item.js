@@ -41,6 +41,10 @@ Item.init(
       allowNull: false,
       defaultValue: true,
     },
+    borrower_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
   },
   {
     sequelize,
