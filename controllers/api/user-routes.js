@@ -17,7 +17,7 @@ router.post("/signup", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.user = newUser.id;
+      req.session.user = newUser;
       console.log(
         "File: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie",
         req.session.cookie
@@ -81,7 +81,7 @@ router.get("/:id", async (req, res) => {
 // delete user
 router.delete("/:id", async (req, res) => {
   try {
-    const findUser = await User.destroy({
+    await User.destroy({
       where: { id: req.params.id },
     });
     console.log(`User Deleted`);
@@ -94,7 +94,7 @@ router.delete("/:id", async (req, res) => {
 // update user =  successful
 router.put("/:id", async (req, res) => {
   try {
-    const updateUser = await User.update(
+    await User.update(
       {
         first_name: req.body.first_name,
         location: req.body.location,

@@ -1,15 +1,21 @@
 const saveBtn = document.querySelector('.save-btn');
 
-let savedArray = [];
 
 const saveItem = async (event) => {
     event.preventDefault();
     saveBtn.textContent = 'Saved';
 
     let itemId = saveBtn.id;
-    savedArray.push(itemId)
+    console.log(itemId)
+    await fetch('/api/favorite', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({itemId})
+    }) 
 
-    localStorage.setItem('saved', JSON.stringify(savedArray))
+    console.log('done')
 
 }
 
