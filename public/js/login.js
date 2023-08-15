@@ -1,43 +1,24 @@
-const loginBtn = document.querySelector("#login-btn");
-// const signupBtn = document.querySelector("#signup-btn");
-
-const loginHandler = async function (event) {
+const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  let email = document.querySelector("#login-email").value;
-  let password = document.querySelector("#login-password").value;
-  // let location = document.querySelector("#login-location").value;
-  // let name = document.querySelector("#login-name").value;
+  const email = document.querySelector('#login-email').value.trim();
+  const password = document.querySelector('#login-password').value.trim();
 
-  let userData = {
-    // first_name: name,
-    email: email,
-    password: password,
-    // location: location,
-  };
-  console.log(userData)
-  const response = await fetch("/api/user/login", {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(userData),
-  });
-
-  if (response.ok) {
-    document.location.replace("/explore");
-  } else {
-    alert("Failed to login");
+  if (email && password) {
+    const response = await fetch('/api/user/login', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert('Failed to log in.');
+    }
   }
 };
 
-
-// const signupRedirect = function () {
-//   document.location.redirect("/signup");
-// };
-
-// Add event listener to login button
-loginBtn.addEventListener("click", loginHandler);
-
-// Add event listener to signup button
-// signupBtn.addEventListener("click", signupRedirect);
+const loginForm = document.querySelector('#login-form');
+if (loginForm) {
+  loginForm.addEventListener('submit', loginFormHandler);
+}
