@@ -23,14 +23,19 @@ router.get("/", async (req, res) => {
 router.get("/explore", async (req, res) => {
   try {
     const itemData = await Item.findAll({
-      include: [User],
+      include: [User, Category],
     });
 
     console.log(itemData);
 
     const items = itemData.map((item) => item.get({ plain: true }));
 
-    res.render("all-listings", { items, User, loggedIn: req.session.loggedIn });
+    res.render("all-listings", {
+      items,
+      User,
+      Category,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -45,8 +50,12 @@ router.get("/item/:id", async (req, res) => {
 
     if (itemData) {
       const item = itemData.get({ plain: true });
-      console.log(item)
-      res.render("single-listing", { item, User, loggedIn: req.session.loggedIn });
+      console.log(item);
+      res.render("single-listing", {
+        item,
+        User,
+        loggedIn: req.session.loggedIn,
+      });
     } else {
       res.status(404).end();
     }
@@ -109,20 +118,22 @@ router.get('/favorites', async (req, res) => {
 
 
 // my-listings
-router.get('/my-listings', async (req, res) => {
-  const userId = req.session.user.id
-  console.log(userId)
+router.get("/my-listings", async (req, res) => {
+  const userId = req.session.user.id;
+  console.log(userId);
   const allItems = await Item.findAll({
-    where: { user_id: userId}
+    where: { user_id: userId },
   });
 
-  const myItems = allItems.map((item) => item.get({ plain: true }))
-  console.log(myItems)
+  const myItems = allItems.map((item) => item.get({ plain: true }));
+  console.log(myItems);
 
-  res.render('user-listings', {
-    user: req.session.user, myItems, loggedIn: req.session.loggedIn
-  })
-})
+  res.render("user-listings", {
+    user: req.session.user,
+    myItems,
+    loggedIn: req.session.loggedIn,
+  });
+});
 
 router.get('/edit-listing/:id', async (req, res) => {
   const itemId = req.params.id;
@@ -150,11 +161,11 @@ router.get('/edit-listing/:id', async (req, res) => {
 router.get("/create", async (req, res) => {
   const allCategories = await Category.findAll();
   let categories = allCategories.map((categories) => {
-    return categories.get({ plain: true})
-  })
-  console.log(categories)
-  res.render('create-listing', {loggedIn: req.session.loggedIn, categories})
-})
+    return categories.get({ plain: true });
+  });
+  console.log(categories);
+  res.render("create-listing", { loggedIn: req.session.loggedIn, categories });
+});
 
 
 module.exports = router;
