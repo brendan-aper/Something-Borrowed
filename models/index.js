@@ -25,7 +25,8 @@ User.hasMany(Favorite, {
 })
 
 Favorite.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 })
 
 module.exports = { User, Item, Category, Favorite }

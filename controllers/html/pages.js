@@ -8,9 +8,10 @@ router.get("/", async (req, res) => {
       include: [User],
     });
 
-    console.log(itemData);
 
     const items = itemData.map((item) => item.get({ plain: true }));
+
+    console.log(items)
 
     res.render("all-listings", { items, User, loggedIn: req.session.loggedIn });
   } catch (err) {
@@ -79,20 +80,33 @@ router.get("/pending", async (req, res) => {
 
 // favorites page
 router.get('/favorites', async (req, res) => {
-    try {
-      const favData = await Favorite.findAll();
-  
-      console.log(favData);
-  
-      const favs = favData.map((fav) => fav.get({ plain: true }));
-  
-      res.render('favorite', {favs, loggedIn: req.session.loggedIn})
-
-
-    } catch (err) {
-      res.status(500).json(err);
+  const user = req.session.user.id;
+  const favorites = await Favorite.findAll({
+    where: {
+      user_id: user
     }
-  });
+  })
+
+  // find all favs for that user
+  const favs = favorites.map((fav) => fav.get({ plain: true}))
+  console.log(favs)
+  // loop through favs to find blogPosts
+
+  let itemArray = [];
+  favs.forEach(async (element) => {
+    let findItem = await Item.findOne({
+      where: {
+        id: element.blogPost_id
+      }
+    });
+    let item = findItem.get({ plain:true })
+    itemArray.push(item)
+    console.log(itemArray)
+  })
+
+  res.render('favorite', { itemArray, loggedIn: req.session.loggedIn})
+});
+
 
 
 // my-listings
