@@ -45,6 +45,8 @@ const createHeandler = async function (event) {
     body: JSON.stringify(itemData)
   });
 
+  window.location.href ='/my-listings'
+
   // // document.location.replace("/dashboard");
 };
 
