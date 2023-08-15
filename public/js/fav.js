@@ -8,6 +8,7 @@ unsaveBtn.forEach((btn) => {
         })
         .then((response) => response.json())
         .then((data) => console.log(data))
+        .then((window.location.reload()))
     })
 })
 
