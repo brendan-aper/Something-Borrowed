@@ -2,9 +2,13 @@
   <div class="card-header">
     <h2>Edit Listing</h2>
   </div>
+  <div id="listing-hero">
+  <img id="item-image" src="{{editItem.image}}" alt="{{editItem.title}}">
+  </div>
   <form id="edit-listing-form" class="card-body">
     <input type="hidden" name="item-id" value="{{editItem.id}}" />
-    <label class="form-label" for="post-title">Title</label>
+    <label id="item-title"
+     class="form-label" for="post-title">Title</label>
     <input
       type="text"
       name="item-title"
@@ -13,8 +17,10 @@
     />
     <label class="form-label" for="item-desc">Description</label>
     <textarea name="item-desc" class="form-input">{{editItem.description}}</textarea>
-    <button type="submit" class="button">Update</button>
+    <button id="update-post-btn" type="submit" class="button">Update</button>
     {{! TODO: include this button if we create a DELETE request }}
     {{! <button type="button" id="delete-button" class="button">Delete</button> }}
   </form> 
 </div>
+
+<script src="/js/edit.js"></script>
