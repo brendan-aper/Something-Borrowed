@@ -1,4 +1,4 @@
-<div class="row">
+<div class="form-container">
   <div class="login-card">
     <h2>Create An Account</h2>
     <form id="signup-form">
@@ -12,24 +12,25 @@
           class="form-input"
           type="password"
           id="signup-password"
-          placeholder="Must be at least 8 characters"
+          placeholder="must be at least 8 characters"
         />
       </div>
       <div class="input-section">
         <label for="signup-name">First name:</label>
-        <input type="text" id="signup-name" placeholder="Enter name" />
+        <input type="text" id="signup-name" placeholder="enter name" />
       </div>
       <div class="input-section">
-        <label for="signup-location">City:</label>
-        <input type="text" id="signup-location" placeholder="Zip Code" />
+        <label for="signup-location">Location:</label>
+        <input type="text" id="signup-location" placeholder="zip code" />
       </div>
       <div class="input-section">
-        <button id="submitBtn" type="submit">create account</button>
+        <button class="btn primary-btn" id="submitBtn" type="submit">Create
+          Account</button>
       </div>
     </form>
     <div>
       Already have an account?
-      <a href="/login" class="btn secondary-btn">Login Instead</a>
+      <a href="/login" class="orange-link">Login Instead</a>
     </div>
   </div>
 </div>

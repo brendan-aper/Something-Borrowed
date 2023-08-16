@@ -1,5 +1,6 @@
 :root {
   --primary: #265552;
+  --primary-drk: #204845;
   --secondary: #d8652d;
   --sage: #98afae;
   --grey: #eaeceb;
@@ -41,7 +42,6 @@ h1 {
 .navbar {
   width: 90%;
   padding: 5%;
-  /* position: fixed; */
 }
 
 nav ul {
@@ -61,7 +61,7 @@ nav a:hover {
 
 main {
   background-color: var(--grey);
-  padding: 5%;
+  /* padding: 3%; */
   border-radius: 35px 35px 0 0;
 }
 
@@ -94,9 +94,9 @@ a.btn {
 }
 
 .primary-btn:hover {
-  color: var(--primary);
-  background-color: var(--grey);
-  border: 1px solid var(--primary);
+  /* color: var(--primary); */
+  background-color: var(--primary-drk);
+  /* border: 1px solid var(--primary); */
 }
 
 .secondary-btn {
@@ -122,19 +122,25 @@ a.btn {
   outline: 1px solid #929195;
 }
 
-.edit-listing-btn {
-  color: var(--cream);
-  background-color: var(--secondary);
-  outline: 1px solid var(--secondary);
-}
-
-.edit-listing-btn:hover {
+.orange-btn {
   color: var(--secondary);
   background-color: var(--cream);
   outline: 1px solid var(--secondary);
 }
 
-.delete-listing-btn {
+.orange-btn:hover {
+  color: var(--cream);
+  background-color: #bb5826;
+  outline: 1px solid var(--secondary);
+}
+
+.orange-out-btn {
+  color: var(--cream);
+  background-color: var(--secondary);
+  outline: 1px solid var(--secondary);
+}
+
+.orange-out-btn:hover {
   color: var(--secondary);
   background-color: var(--cream);
   outline: 1px solid var(--secondary);
@@ -145,14 +151,25 @@ a.btn {
   flex-wrap: wrap;
 }
 
+.orange-link {
+  color: var(--sage);
+}
+.orange-link:hover {
+  color: var(--secondary);
+}
+
 /* Forms styling */
+.form-container {
+  padding: 3%;
+}
+
 input,
 textarea {
   border: 2px solid #98afae;
   border-radius: var(--border-radius-button);
   padding: 20px;
   height: 40px;
-  width: 300px;
+  width: 100%;
 }
 
 textarea:focus,
@@ -165,6 +182,14 @@ input[type]:focus,
 
 .input-section {
   margin-bottom: 15px;
+}
+
+form {
+  max-width: 400px;
+}
+
+.input-section label {
+  padding-bottom: 10px;
 }
 
 .form-label {
@@ -222,15 +247,19 @@ input[type]:focus,
 }
 
 /* Item listing card */
+.listings-grid {
+  padding: 3%;
+}
+
 .item-card {
   display: flex;
-  padding: 2%;
+  padding: 5px;
 }
 
 .card-image {
   z-index: 0;
   width: 50%;
-  margin: 2%;
+  margin: 5px;
   border-radius: var(--border-radius);
   -webkit-box-shadow: var(--webkit-box-shadow);
   -moz-box-shadow: var(--moz-box-shadow);
@@ -247,7 +276,7 @@ input[type]:focus,
 .card-details {
   width: 60%;
   padding: 20px 20px 20px 80px;
-  margin: 5% 0 5% -50px;
+  margin: 20px 0 20px -50px;
   background-color: var(--cream);
   border-radius: var(--border-radius);
   -webkit-box-shadow: var(--webkit-box-shadow);
@@ -255,6 +284,7 @@ input[type]:focus,
   box-shadow: var(--box-shadow);
 }
 
+/* Badges & Warnings */
 .badge {
   width: 100px;
   padding: 5px 10px;
@@ -274,13 +304,37 @@ input[type]:focus,
   border-radius: var(--border-radius-button);
 }
 
+.warning-text {
+  color: var(--secondary);
+}
+
 /* Single Listing Page */
+#single-listing-pg {
+  position: relative;
+}
+
+.listing-hero {
+  position: relative;
+  width: 100%;
+  top: 0;
+  z-index: 0;
+}
 .listing-hero img {
   width: 100%;
 }
 
 .listing-details {
-  padding: 40px 0;
+  position: absolute;
+  z-index: 1;
+  padding: 40px;
+  margin: -50px 5vw 0 5vw;
+  background-color: var(--cream);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+}
+
+.listing-links {
+  margin-top: 20px;
 }
 
 .listing-buttons {
