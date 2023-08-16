@@ -270,6 +270,13 @@ input[type]:focus,
   background-color: var(--secondary);
   outline: 1px solid var(--secondary);
 }
+
+.edit-listing-btn:hover {
+  color: var(--secondary);
+  background-color: var(--cream);
+  outline: 1px solid var(--secondary);
+}
+
 .delete-listing-btn {
   color: var(--secondary);
   background-color: var(--cream);
