@@ -3,7 +3,7 @@
     <div class="listing-hero">
       <img src="{{item.image}}" alt="{{item.title}}" />
     </div>
-    <div class="listing-details">
+    <div class="listing-details container-shadow">
       <h2>{{item.title}}</h2>
       <p>{{item.description}}</p>
     </div>
@@ -20,6 +20,15 @@
         <button class="btn primary-btn save-btn" id="{{item.id}}">Save</button>
         <button class="btn disabled-btn">Contact Lender</button>
       {{/if}}
+    </div>
+  </div>
+{{else}}
+  <div class="page-container">
+    <p class="warning-text">Please login or create a new account to see item
+      details.</p>
+    <div class="pad-top">
+      <a href="/login" class="btn primary-btn">Login</a>
+      <a href="/signup" class="btn secondary-btn">Create Account</a>
     </div>
   </div>
 {{/if}}

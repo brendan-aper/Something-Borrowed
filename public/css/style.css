@@ -65,6 +65,14 @@ main {
   border-radius: 35px 35px 0 0;
 }
 
+.page-container {
+  padding: 3%;
+}
+
+.pad-top {
+  padding-top: 40px;
+}
+
 /* Links & Buttons */
 a {
   color: var(--primary);
@@ -81,8 +89,8 @@ a.btn {
 .btn {
   padding: 15px;
   margin: 20px 10px 0 0;
-  width: fit-content;
   min-width: 100px;
+  width: fit-content;
   border-radius: var(--border-radius-button);
   border: none;
 }
@@ -94,9 +102,7 @@ a.btn {
 }
 
 .primary-btn:hover {
-  /* color: var(--primary); */
   background-color: var(--primary-drk);
-  /* border: 1px solid var(--primary); */
 }
 
 .secondary-btn {
@@ -158,10 +164,6 @@ a.btn {
 }
 
 /* Forms styling */
-.form-container {
-  padding: 3%;
-}
-
 input {
   border: 2px solid #98afae;
   border-radius: var(--border-radius);
@@ -207,6 +209,12 @@ form {
   /* padding: 10px; */
   margin: 10px 0;
   min-height: 40px;
+}
+
+.container-shadow {
+  -webkit-box-shadow: var(--webkit-box-shadow);
+  -moz-box-shadow: var(--moz-box-shadow);
+  box-shadow: var(--box-shadow);
 }
 
 #search-section {
@@ -265,9 +273,6 @@ form {
   width: 50%;
   margin: 5px;
   border-radius: var(--border-radius);
-  -webkit-box-shadow: var(--webkit-box-shadow);
-  -moz-box-shadow: var(--moz-box-shadow);
-  box-shadow: var(--box-shadow);
 }
 
 .card-image img {
@@ -283,9 +288,6 @@ form {
   margin: 20px 0 20px -50px;
   background-color: var(--cream);
   border-radius: var(--border-radius);
-  -webkit-box-shadow: var(--webkit-box-shadow);
-  -moz-box-shadow: var(--moz-box-shadow);
-  box-shadow: var(--box-shadow);
 }
 
 /* Badges & Warnings */
@@ -315,6 +317,9 @@ form {
 /* Single Listing Page */
 #single-listing-pg {
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .listing-hero {
@@ -325,20 +330,22 @@ form {
 }
 .listing-hero img {
   width: 100%;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 .listing-details {
   position: absolute;
+  top: 90%;
+  width: 75%;
   z-index: 1;
   padding: 40px;
-  margin: -50px 5vw 0 5vw;
+  margin-top: -50px;
   background-color: var(--cream);
-  box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
 }
 
 .listing-links {
-  margin-top: 20px;
+  margin-top: 200px;
 }
 
 .listing-buttons {
