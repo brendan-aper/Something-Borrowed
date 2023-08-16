@@ -4,6 +4,7 @@
   </div>
   {{#each myItems as |item|}}
     <article class="item-card">
+      <input type="hidden" name="item-id" value="{{id}}" />
       <div class="card-image container-shadow">
         <a href="/item/{{id}}">
           <img src="{{image}}" alt="{{title}}" />
@@ -27,7 +28,7 @@
           {{/if}}
           <div class="edit-del-btns">
             <a href="/edit-listing/{{id}}" class="btn orange-btn">Edit listing</a>
-            <a class="btn orange-out-btn">Delete listing</a>
+            <a class="btn orange-out-btn delete-btn">Delete listing</a>
           </div>
         </div>
       </div>
@@ -36,3 +37,4 @@
   {{/each}}
 </div>
 <script src="/js/pending.js"></script>
+<script src="/js/delete.js"></script>
