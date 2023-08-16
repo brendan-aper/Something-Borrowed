@@ -1,7 +1,7 @@
 const itemId = document.querySelector('input[name="item-id"]').value;
 
-const lendBtn = document.querySelector("lend-btn");
-const availBtn = document.querySelector("avail-btn");
+const lendBtn = document.querySelector(".lend-btn");
+const availBtn = document.querySelector(".avail-btn");
 
 const markLending = async function () {
   let availability = {

@@ -34,7 +34,7 @@ Item.init(
     image: {
       // url string
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     isAvailable: {
       type: DataTypes.BOOLEAN,
