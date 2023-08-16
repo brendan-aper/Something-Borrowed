@@ -1,19 +1,24 @@
-<div>
-  <p>Favorite Listings</p>
-</div>
 <div class="listings-grid">
+  <div>
+    <h2>My Favorite Listings</h2>
+  </div>
   {{#each itemArray as |item|}}
     <article class="item-card" id="{{id}}">
-      <div class="card-image">
+      <div class="card-image container-shadow">
         <img src="{{image}}" alt="{{title}}" />
       </div>
-      <div class="card-details">
+      <div class="card-details container-shadow">
         <h2>
           <a href="/item/{{id}}">{{title}}</a>
         </h2>
+        {{#if isAvailable}}
+          <p class="badge available-badge">Available</p>
+        {{else}}
+          <p class="badge unavailable-badge">Available</p>
+        {{/if}}
         <p>{{description}}</p>
+        <button class="btn orange-out-btn unsaveBtn">Unsave</button>
       </div>
-      <p class="unsaveBtn">Unsave</p>
     </article>
   {{/each}}
 </div>

@@ -2,18 +2,15 @@
   <h2>Pending Requests</h2>
   <div>
     {{#each items as |item|}}
-      {{#if items.borrower}}
+      {{#if items.hasInterest}}
         <div>
-          {{! TODO: edit the Item model to disclude price and include borrower }}
-          {{! item.borrower = key is the user id, value is the user's name - so this logic might need to change a little to make sure we are saving the user id and namebut we are disaplying just the name}}
-          <p>{{borrower}} wants to borrow your {{title}}</p>
-          {{! TODO: pending item card goes here - maybe as a partial? }}
+          <p>{{item.borrower_id.first_name}} wants to borrow your {{title}}</p>
           <p>Are you lending to this user?</p>
-          <button id="confirm-button" class="button primary-button">Confirm Lend</button>
-          <button id="cancel-button" class="button secondary-button">Cancel
-            Request</button>
+          <button id="confirm-btn" class="btn primary-btn">Confirm Lend</button>
+          <button id="cancel-btn" class="btn secondary-btn">Cancel Request</button>
         </div>
       {{/if}}
     {{/each}}
   </div>
 </div>
+<script src="/js/mark-interest.js"></script>
