@@ -32,6 +32,7 @@ router.get("/item/:id", async (req, res) => {
 
     if (itemData) {
       const item = itemData.get({ plain: true });
+
       console.log(item);
       res.render("single-listing", {
         item,
@@ -75,6 +76,7 @@ router.get("/favorites", async (req, res) => {
   // find all favs for that user
   const favs = favorites.map((fav) => fav.get({ plain: true }));
   console.log(favs);
+
   // loop through favs to find blogPosts
 
   let itemArray = [];
@@ -158,5 +160,6 @@ router.get("/category/:id", async (req, res) => {
     loggedIn: req.session.loggedIn,
   });
 });
+
 
 module.exports = router;

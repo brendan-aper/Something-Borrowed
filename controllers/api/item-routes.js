@@ -36,6 +36,8 @@ router.post("/", async (req, res) => {
   res.status(200).json(itemData);
 });
 
+
+})
 // DELETE a item
 router.delete("/:id", async (req, res) => {
   const findItem = await Item.destroy({

@@ -25,7 +25,6 @@ document.querySelector(".cloudinary-button").addEventListener(
   },
   false
 );
-
 const createHeandler = async function (event) {
   event.preventDefault();
 
@@ -49,7 +48,6 @@ const createHeandler = async function (event) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(itemData),
   });
-
   window.location.href = "/my-listings";
 };
 
