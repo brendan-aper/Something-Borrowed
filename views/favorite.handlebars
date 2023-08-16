@@ -11,6 +11,11 @@
         <h2>
           <a href="/item/{{id}}">{{title}}</a>
         </h2>
+        {{#if isAvailable}}
+          <p class="badge available-badge">Available</p>
+        {{else}}
+          <p class="badge unavailable-badge">Available</p>
+        {{/if}}
         <p>{{description}}</p>
       </div>
       <p class="unsaveBtn">Unsave</p>

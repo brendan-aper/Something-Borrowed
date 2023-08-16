@@ -12,23 +12,6 @@ router.get("/", async (req, res) => {
 
     console.log(items);
 
-    res.render("all-listings", { items, User, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// Get all listings for home (explore) page
-router.get("/explore", async (req, res) => {
-  try {
-    const itemData = await Item.findAll({
-      include: [User, Category],
-    });
-
-    console.log(itemData);
-
-    const items = itemData.map((item) => item.get({ plain: true }));
-
     res.render("all-listings", {
       items,
       User,
@@ -39,11 +22,6 @@ router.get("/explore", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// get all posts for homepage
-// router.get("/", async (req, res) => {
-//   res.render("all-listings", { loggedIn: req.session.loggedIn });
-// });
 
 // get single listing
 router.get("/item/:id", async (req, res) => {

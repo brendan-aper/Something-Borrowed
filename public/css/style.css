@@ -203,6 +203,7 @@ input[type]:focus,
 }
 
 .card-image {
+  z-index: 0;
   width: 50%;
   margin: 2%;
   border-radius: var(--border-radius);
@@ -220,7 +221,7 @@ input[type]:focus,
 
 .card-details {
   width: 60%;
-  padding: 5%;
+  padding: 20px 20px 20px 80px;
   margin: 5% 0 5% -50px;
   background-color: var(--cream);
   border-radius: var(--border-radius);
@@ -229,18 +230,38 @@ input[type]:focus,
   box-shadow: var(--box-shadow);
 }
 
+.badge {
+  width: 100px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.available-badge {
+  color: var(--cream);
+  background-color: var(--sage);
+  border-radius: var(--border-radius-button);
+}
+
+.unavailable-badge {
+  color: var(--sage);
+  background-color: var(--cream);
+  outline: 1px solid var(--sage);
+  border-radius: var(--border-radius-button);
+}
+
 /* Single Listing Page */
 #listing-hero img {
   width: 100%;
-  /* height: 500px; */
 }
 
 #listing-details {
   padding: 40px 0;
 }
 
+/* My Listings page */
 .listing-buttons a {
   display: block;
+  width: 100%;
   margin: 10px;
 }
 

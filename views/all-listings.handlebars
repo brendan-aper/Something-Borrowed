@@ -22,10 +22,12 @@
           <a href="/item/{{id}}">{{title}}</a>
         </h2>
         {{#if isAvailable}}
-          <p class="available-badge">Available</p>
+          <p class="badge available-badge">Available</p>
+        {{else}}
+          <p class="badge unavailable-badge">Available</p>
         {{/if}}
         <p>{{description}}</p>
-        <p>Category: {{item.category.name}}</p>
+        <p>Category: {{category.name}}</p>
         <p class="lendee-info">Lended by: {{item.user.first_name}}</p>
       </div>
     </article>
