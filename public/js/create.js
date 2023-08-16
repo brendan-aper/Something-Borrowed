@@ -32,7 +32,7 @@ const createHeandler = async function (event) {
   let title = document.querySelector("#item-title").value;
   let description = document.querySelector("#item-description").value;
   let location = document.querySelector("#item-location").value;
-  let category = document.querySelector("#item-category").value;
+  let category = document.querySelector("#category-select").value;
 
   let itemData = {
     title: title,

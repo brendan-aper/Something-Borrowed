@@ -13,6 +13,7 @@
           class="form-input"
           placeholder="enter title"
         />
+
       </div>
 
       <div class="input-section">
@@ -34,7 +35,8 @@
           id="item-Location"
           placeholder="zip code"
           aria-valuemax="maxiumum 5 characters"
-        ></input></div>
+        />
+      </div>
 
       <div class="input-section">
         <p>Add an item image:</p>
@@ -45,9 +47,10 @@
         <label class="form-label" for="post-category">Choose category</label>
         <select id="category-select" name="post-category">
           {{#each categories as |category|}}
-            <option id="item-category" value="{{id}}">{{name}}</option>
+            <option value="{{id}}">{{name}}</option>
           {{/each}}
-        </select></div>
+        </select>
+      </div>
 
       <button id="create-btn" type="submit" class="btn primary-btn">Create
         Listing</button>
