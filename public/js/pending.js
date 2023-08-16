@@ -1,9 +1,11 @@
-const itemId = document.querySelector('input[name="item-id"]').value;
-
-const lendBtn = document.querySelector(".lend-btn");
-const availBtn = document.querySelector(".avail-btn");
+const lendBtns = document.querySelectorAll(".lend-btn");
+const availBtns = document.querySelectorAll(".avail-btn");
 
 const markLending = async function () {
+  const itemId = this.closest(".item-card").querySelector(
+    'input[name="item-id"]'
+  ).value;
+
   let availability = {
     isAvailable: false,
   };
@@ -20,6 +22,10 @@ const markLending = async function () {
 };
 
 const markAvail = async function () {
+  const itemId = this.closest(".item-card").querySelector(
+    'input[name="item-id"]'
+  ).value;
+
   let availability = {
     isAvailable: true,
   };
@@ -36,7 +42,11 @@ const markAvail = async function () {
 };
 
 // Mark listing as currently unavailable
-lendBtn.addEventListener("click", markLending);
+lendBtns.forEach((lendBtn) => {
+  lendBtn.addEventListener("click", markLending);
+});
 
 // Mark listing as currently available
-availBtn.addEventListener("click", markAvail);
+availBtns.forEach((availBtn) => {
+  availBtn.addEventListener("click", markAvail);
+});
