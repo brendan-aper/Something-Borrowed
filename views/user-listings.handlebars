@@ -17,8 +17,6 @@
         <p>{{description}}</p>
       </div>
       <div>
-        <a>Delete listing</a>
-        <a href="/edit-listing/{{ id }}">Edit listing</a>
       <div class="listing-buttons">
         {{#if isAvailable}}
           <p>Currently lending this to someone?</p>
@@ -27,7 +25,7 @@
           <p>No longer lending this item?</p>
           <button class="btn primary-btn" id="avail-btn">It's available</button>
         {{/if}}
-        <a class="btn secondary-btn"><button>Edit listing</button></a>
+        <a href="/edit-listing/{{id}}" class="btn edit-listing-btn"><button>Edit listing</button></a>
         <a class="btn delete-listing-btn"><button>Delete listing</button></a>
       </div>
 

@@ -1,5 +1,5 @@
 const express = require("express");
-const { Item } = require("../../models");
+const { Item, User } = require("../../models");
 const router = express.Router();
 
 // GET all item
@@ -7,29 +7,6 @@ router.get("/", async (req, res) => {
   const allItems = await Item.findAll();
   console.log("found");
   res.json(allItems);
-});
-
-// get single listing
-router.get("/item/:id", async (req, res) => {
-  try {
-    const itemData = await Item.findByPk(req.params.id, {
-      include: [User],
-    });
-
-    if (itemData) {
-      const item = itemData.get({ plain: true });
-      console.log(item);
-      res.render("single-listing", {
-        item,
-        User,
-        loggedIn: req.session.loggedIn,
-      });
-    } else {
-      res.status(404).end();
-    }
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
 
 // POST a new item

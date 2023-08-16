@@ -74,7 +74,8 @@ a:hover {
 }
 
 .btn {
-  padding: 10px 30px;
+  padding: 10px;
+  width: 100px;
   height: 40px;
   border-radius: var(--border-radius-button);
   border: none;
@@ -243,8 +244,13 @@ input[type]:focus,
   margin: 10px;
 }
 
-.delete-listing-btn {
+.edit-listing-btn {
   color: var(--cream);
-  background-color: #d8652d;
-  outline: 1px solid #d8652d;
+  background-color: var(--secondary);
+  outline: 1px solid var(--secondary);
+}
+.delete-listing-btn {
+  color: var(--secondary);
+  background-color: var(--cream);
+  outline: 1px solid var(--secondary);
 }
