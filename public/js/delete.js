@@ -1,12 +1,15 @@
-const deleteBtn = document.querySelector("#delete-btn");
-const itemId = document.querySelector('input[name="item-id"]').value;
+const deleteBtns = document.querySelectorAll(".delete-btn");
 
-const deleteItem = async function () {
-  await fetch(`/api/item/${itemId}`, {
-    method: "DELETE",
+deleteBtns.forEach((deleteBtn) => {
+  deleteBtn.addEventListener("click", async function () {
+    const itemId = this.closest(".item-card").querySelector(
+      'input[name="item-id"]'
+    ).value;
+
+    await fetch(`/api/item/${itemId}`, {
+      method: "DELETE",
+    });
+
+    document.location.replace("/my-listings");
   });
-
-  document.location.replace("/my-listings");
-};
-
-deleteBtn.addEventListener("click", deleteItem);
+});
