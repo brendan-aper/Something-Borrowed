@@ -2,15 +2,15 @@
   <h2>Pending Requests</h2>
   <div>
     {{#each items as |item|}}
-      {{#if items.borrower_id}}
+      {{#if items.hasInterest}}
         <div>
           <p>{{item.borrower_id.first_name}} wants to borrow your {{title}}</p>
           <p>Are you lending to this user?</p>
           <button id="confirm-btn" class="btn primary-btn">Confirm Lend</button>
-          <button id="cancel-btn" class="btn secondary-btn">Cancel
-            Request</button>
+          <button id="cancel-btn" class="btn secondary-btn">Cancel Request</button>
         </div>
       {{/if}}
     {{/each}}
   </div>
 </div>
+<script src="/js/mark-interest.js"></script>

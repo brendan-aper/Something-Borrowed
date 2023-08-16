@@ -7,6 +7,9 @@
   --dark: #38302e;
   --border-radius: 25px;
   --border-radius-button: 50px;
+  --webkit-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
+  --moz-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
+  --box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
 }
 
 body {
@@ -15,6 +18,7 @@ body {
   padding: 0;
   font-family: "Poppins", sans-serif;
   color: var(--dark);
+  line-height: 1.5em;
 }
 
 h1,
@@ -200,23 +204,28 @@ input[type]:focus,
 .card-image {
   width: 50%;
   margin: 2%;
-  /* TODO: Move box shadow & border radius to root styles? */
-  border-radius: 20px;
-  -webkit-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
-  -moz-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
-  box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
+  border-radius: var(--border-radius);
+  -webkit-box-shadow: var(--webkit-box-shadow);
+  -moz-box-shadow: var(--moz-box-shadow);
+  box-shadow: var(--box-shadow);
 }
 
 .card-image img {
+  object-fit: cover;
   width: 100%;
+  height: 100%;
   border-radius: 20px;
 }
 
 .card-details {
-  width: 50%;
-  margin: 2%;
-  /* background-color: (var(--dark));
-  border-radius: var(--border-radius); */
+  width: 60%;
+  padding: 5%;
+  margin: 5% 0 5% -50px;
+  background-color: var(--cream);
+  border-radius: var(--border-radius);
+  -webkit-box-shadow: var(--webkit-box-shadow);
+  -moz-box-shadow: var(--moz-box-shadow);
+  box-shadow: var(--box-shadow);
 }
 
 /* Single Listing Page */
@@ -227,4 +236,15 @@ input[type]:focus,
 
 #listing-details {
   padding: 40px 0;
+}
+
+.listing-buttons a {
+  display: block;
+  margin: 10px;
+}
+
+.delete-listing-btn {
+  color: var(--cream);
+  background-color: #d8652d;
+  outline: 1px solid #d8652d;
 }

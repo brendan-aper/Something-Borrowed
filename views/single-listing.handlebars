@@ -10,7 +10,7 @@
   <div id="listing-links">
     {{! Add link to save button }}
     <button class="btn primary-btn save-btn" id="{{item.id}}">Save</button>
-      {{#if isAvailable}}
+      {{#if item.isAvailable}}
       <a href="mailto:{{item.user.email}}"><button
           class="btn primary-btn"
           id="contact-btn"

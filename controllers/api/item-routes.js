@@ -9,10 +9,27 @@ router.get("/", async (req, res) => {
   res.json(allItems);
 });
 
-// GET a single item by ID
-router.get("/:id", async (req, res) => {
-  const singleItem = await Item.findByPk(req.params.id);
-  res.json(singleItem);
+// get single listing
+router.get("/item/:id", async (req, res) => {
+  try {
+    const itemData = await Item.findByPk(req.params.id, {
+      include: [User],
+    });
+
+    if (itemData) {
+      const item = itemData.get({ plain: true });
+      console.log(item);
+      res.render("single-listing", {
+        item,
+        User,
+        loggedIn: req.session.loggedIn,
+      });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // POST a new item

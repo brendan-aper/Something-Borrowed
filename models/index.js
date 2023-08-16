@@ -20,8 +20,8 @@ Item.belongsTo(Category, {
   foreignKey: "category_id",
 });
 
-Item.hasOne(User, {
-  foreignKey: "driver_id",
+User.hasMany(Favorite, {
+  foreignKey: "user_id",
 });
 
 User.hasMany(Favorite, {
@@ -35,4 +35,4 @@ Favorite.belongsTo(User, {
 
 module.exports = { User, Item, Category, Favorite }
 
-module.exports = { User, Item, Category };
+module.exports = { User, Item, Category, Favorite };

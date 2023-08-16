@@ -41,29 +41,6 @@ router.get("/explore", async (req, res) => {
   }
 });
 
-// get single listing
-router.get("/item/:id", async (req, res) => {
-  try {
-    const itemData = await Item.findByPk(req.params.id, {
-      include: [User],
-    });
-
-    if (itemData) {
-      const item = itemData.get({ plain: true });
-      console.log(item);
-      res.render("single-listing", {
-        item,
-        User,
-        loggedIn: req.session.loggedIn,
-      });
-    } else {
-      res.status(404).end();
-    }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // get all posts for homepage
 router.get("/", async (req, res) => {
   res.render("all-listings", { loggedIn: req.session.loggedIn });
@@ -83,7 +60,7 @@ router.get("/signup", async (req, res) => {
 });
 
 router.get("/pending", async (req, res) => {
-  res.render("pending");
+  res.render("pending", { loggedIn: req.session.loggedIn });
 });
 
 // favorites page

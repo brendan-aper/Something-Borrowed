@@ -1,36 +1,40 @@
-const confirmBtn = document.getElementById("confirm-btn");
-const cancelBtn = document.getElementById("cancel-btn");
+const lendBtn = document.getElementById("lend-btn");
+const availBtn = document.getElementById("avail-btn");
 
-const confirmBorrow = async function () {
-  // let itemData = {
-  //   isAvailable: false,
-  // };
+const markLending = async function () {
+  const availability = {
+    isAvailable: false,
+  };
 
   await fetch(`/api/item/${item.id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      isAvailable: false,
-    }),
+    body: JSON.stringify(availability),
   });
+
+  console.log("item marked as unavailable");
+
+  window.location.reload();
 };
 
-const cancelBorrow = async function () {
-  // Change item.borrower_id to null
-  let itemData = {
-    borrower_id: null,
+const markAvail = async function () {
+  let availability = {
     isAvailable: true,
   };
 
   await fetch(`/api/item/${item.id}`, {
-    method: "POST",
+    method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(itemData),
+    body: JSON.stringify(availability),
   });
+
+  console.log("item marked as available");
+
+  window.location.reload();
 };
 
-// Add event listener to confirm lendee
-confirmBtn.addEventListener("click", confirmBorrow);
+// Mark listing as currently unavailable
+lendBtn.addEventListener("click", markLending);
 
-// Add event listener to cancel borrow request
-confirmBtn.addEventListener("click", cancelBorrow);
+// Mark listing as currently available
+availBtn.addEventListener("click", markAvail);
