@@ -1,3 +1,5 @@
+const itemId = document.querySelector('input[name="item-id"]').value;
+
 const lendBtn = document.getElementById("lend-btn");
 const availBtn = document.getElementById("avail-btn");
 
@@ -6,7 +8,7 @@ const markLending = async function () {
     isAvailable: false,
   };
 
-  await fetch(`/api/item/${item.id}`, {
+  await fetch(`/api/item/${itemId}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(availability),
@@ -22,7 +24,7 @@ const markAvail = async function () {
     isAvailable: true,
   };
 
-  await fetch(`/api/item/${item.id}`, {
+  await fetch(`/api/item/${itemId}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(availability),
