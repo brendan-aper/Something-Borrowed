@@ -21,10 +21,6 @@ Item.belongsTo(Category, {
 });
 
 User.hasMany(Favorite, {
-  foreignKey: "user_id",
-});
-
-User.hasMany(Favorite, {
     foreignKey: 'user_id'
 })
 
