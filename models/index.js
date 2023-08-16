@@ -1,7 +1,7 @@
-const User = require('./User');
-const Item = require('./Item');
-const Category = require('./Category');
-const Favorite = require('./Favorite')
+const User = require("./User");
+const Item = require("./Item");
+const Category = require("./Category");
+const Favorite = require("./Favorite");
 
 User.hasMany(Item, {
   foreignKey: "user_id",
@@ -21,14 +21,12 @@ Item.belongsTo(Category, {
 });
 
 User.hasMany(Favorite, {
-    foreignKey: 'user_id'
-})
+  foreignKey: "user_id",
+});
 
 Favorite.belongsTo(User, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-})
-
-module.exports = { User, Item, Category, Favorite }
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
 
 module.exports = { User, Item, Category, Favorite };
