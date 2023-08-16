@@ -9,6 +9,23 @@ router.get("/", async (req, res) => {
   res.json(allItems);
 });
 
+// get single listing
+router.get("/:id", async (req, res) => {
+  try {
+    const itemData = await Item.findByPk(req.params.id, {
+      include: [User],
+    });
+
+    if (!itemData) {
+      res.status(404).json({ message: "No item found with that id." });
+      return;
+    }
+    res.status(200).json(itemData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // POST a new item
 router.post("/", async (req, res) => {
   let itemData = { ...req.body, user_id: req.session.user.id };
