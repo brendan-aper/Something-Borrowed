@@ -1,10 +1,10 @@
 const itemId = document.querySelector('input[name="item-id"]').value;
 
-const lendBtn = document.getElementById("lend-btn");
-const availBtn = document.getElementById("avail-btn");
+const lendBtn = document.querySelector("lend-btn");
+const availBtn = document.querySelector("avail-btn");
 
 const markLending = async function () {
-  const availability = {
+  let availability = {
     isAvailable: false,
   };
 
@@ -20,7 +20,7 @@ const markLending = async function () {
 };
 
 const markAvail = async function () {
-  const availability = {
+  let availability = {
     isAvailable: true,
   };
 

@@ -21,10 +21,10 @@
         <div class="listing-buttons">
           {{#if isAvailable}}
             <p>Currently lending this to someone?</p>
-            <button class="btn primary-btn" id="lend-btn">I'm lending this item</button>
+            <button class="btn primary-btn lend-btn">I'm lending this item</button>
           {{else}}
             <p>No longer lending this item?</p>
-            <button class="btn primary-btn" id="avail-btn">It's available</button>
+            <button class="btn secondary-btn avail-btn">It's available</button>
           {{/if}}
           <div class="edit-del-btns">
             <a href="/edit-listing/{{id}}" class="btn orange-btn">Edit listing</a>
