@@ -122,27 +122,26 @@ a.btn {
   outline: 1px solid #929195;
 }
 
-.orange-btn {
+.orange-out-btn {
   color: var(--secondary);
   background-color: var(--cream);
+  outline: 1px solid var(--secondary);
+}
+
+.orange-out-btn:hover {
+  background-color: var(--grey);
+  outline: 1px solid var(--secondary);
+}
+
+.orange-btn {
+  color: var(--cream);
+  background-color: var(--secondary);
   outline: 1px solid var(--secondary);
 }
 
 .orange-btn:hover {
   color: var(--cream);
   background-color: #bb5826;
-  outline: 1px solid var(--secondary);
-}
-
-.orange-out-btn {
-  color: var(--cream);
-  background-color: var(--secondary);
-  outline: 1px solid var(--secondary);
-}
-
-.orange-out-btn:hover {
-  color: var(--secondary);
-  background-color: var(--cream);
   outline: 1px solid var(--secondary);
 }
 
@@ -163,13 +162,18 @@ a.btn {
   padding: 3%;
 }
 
-input,
-textarea {
+input {
   border: 2px solid #98afae;
-  border-radius: var(--border-radius-button);
+  border-radius: var(--border-radius);
   padding: 20px;
   height: 40px;
   width: 100%;
+}
+
+textarea {
+  width: 100%;
+  padding: 20px;
+  border-radius: 25px;
 }
 
 textarea:focus,
@@ -199,10 +203,10 @@ form {
 
 .form-input {
   border: 2px solid #98afae;
-  border-radius: var(--border-radius-button);
-  padding: 0 20px;
+  /* border-radius: var(--border-radius-button); */
+  /* padding: 10px; */
   margin: 10px 0;
-  height: 40px;
+  min-height: 40px;
 }
 
 #search-section {

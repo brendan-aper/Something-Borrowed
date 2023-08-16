@@ -13,7 +13,7 @@
   <form id="edit-listing-form" class="card-body">
     <input type="hidden" name="item-id" value="{{editItem.id}}" />
     <div class="input-section">
-      <label id="item-title" class="form-label" for="post-title">Title</label>
+      <label id="item-title" class="form-label" for="post-title">Title:</label>
       <input
         type="text"
         name="item-title"
@@ -22,8 +22,9 @@
       />
     </div>
     <div class="input-section">
-      <label class="form-label" for="item-desc">Description</label>
+      <label class="form-label" for="item-desc">Description:</label>
       <textarea
+        rows="3"
         name="item-desc"
         class="form-input"
       >{{editItem.description}}</textarea>
