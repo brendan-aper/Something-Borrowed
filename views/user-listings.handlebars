@@ -15,18 +15,20 @@
           <p class="available-badge">Lending</p>
         {{/if}}
         <p>{{description}}</p>
-      </div>
-      <div>
-      <div class="listing-buttons">
-        {{#if isAvailable}}
-          <p>Currently lending this to someone?</p>
-          <button class="btn primary-btn" id="lend-btn">I'm lending this item</button>
-        {{else}}
-          <p>No longer lending this item?</p>
-          <button class="btn primary-btn" id="avail-btn">It's available</button>
-        {{/if}}
-        <a href="/edit-listing/{{id}}" class="btn edit-listing-btn"><button>Edit listing</button></a>
-        <a class="btn delete-listing-btn"><button>Delete listing</button></a>
+        <div class="listing-buttons">
+          {{#if isAvailable}}
+            <p>Currently lending this to someone?</p>
+            <button class="btn primary-btn" id="lend-btn">I'm lending this item</button>
+          {{else}}
+            <p>No longer lending this item?</p>
+            <button class="btn primary-btn" id="avail-btn">It's available</button>
+          {{/if}}
+          <div class="edit-del-btns">
+            <a href="/edit-listing/{{id}}" class="btn edit-listing-btn">Edit
+              listing</a>
+            <a class="btn delete-listing-btn">Delete listing</a>
+          </div>
+        </div>
       </div>
 
     </article>

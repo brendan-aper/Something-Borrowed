@@ -17,6 +17,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
+  font-size: 14px;
   color: var(--dark);
   line-height: 1.5em;
 }
@@ -73,10 +74,15 @@ a:hover {
   color: var(--secondary);
 }
 
+a.btn {
+  text-align: center;
+}
+
 .btn {
-  padding: 10px;
-  width: 100px;
-  height: 40px;
+  padding: 15px;
+  margin: 20px 10px 0 0;
+  width: fit-content;
+  min-width: 100px;
   border-radius: var(--border-radius-button);
   border: none;
 }
@@ -116,6 +122,29 @@ a:hover {
   outline: 1px solid #929195;
 }
 
+.edit-listing-btn {
+  color: var(--cream);
+  background-color: var(--secondary);
+  outline: 1px solid var(--secondary);
+}
+
+.edit-listing-btn:hover {
+  color: var(--secondary);
+  background-color: var(--cream);
+  outline: 1px solid var(--secondary);
+}
+
+.delete-listing-btn {
+  color: var(--secondary);
+  background-color: var(--cream);
+  outline: 1px solid var(--secondary);
+}
+
+.edit-del-btns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /* Forms styling */
 input,
 textarea {
@@ -137,10 +166,6 @@ input[type]:focus,
 .input-section {
   margin-bottom: 15px;
 }
-
-/* .form-input {
-  display: block;
-} */
 
 .form-label {
   font-size: 14px;
@@ -258,27 +283,6 @@ input[type]:focus,
   padding: 40px 0;
 }
 
-/* My Listings page */
-.listing-buttons a {
-  display: block;
-  width: 100%;
-  margin: 10px;
-}
-
-.edit-listing-btn {
-  color: var(--cream);
-  background-color: var(--secondary);
-  outline: 1px solid var(--secondary);
-}
-
-.edit-listing-btn:hover {
-  color: var(--secondary);
-  background-color: var(--cream);
-  outline: 1px solid var(--secondary);
-}
-
-.delete-listing-btn {
-  color: var(--secondary);
-  background-color: var(--cream);
-  outline: 1px solid var(--secondary);
+.listing-buttons {
+  margin-top: 40px;
 }
