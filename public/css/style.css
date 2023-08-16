@@ -7,7 +7,7 @@
   --cream: #f4f6f6;
   --dark: #38302e;
   --border-radius: 25px;
-  --border-radius-button: 15px;
+  --border-radius-button: 20px;
   --webkit-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
   --moz-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
   --box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
@@ -298,7 +298,7 @@ form {
 .badge {
   width: 100px;
   padding: 5px 10px;
-  margin: 10px 0 10px 0;
+  margin: 0 0 10px 0;
   text-align: center;
 }
 
