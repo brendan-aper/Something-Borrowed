@@ -35,8 +35,6 @@ Item.init(
       // url string
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue:
-        "https://genesisairway.com/wp-content/uploads/2019/05/no-image.jpg",
     },
     isAvailable: {
       type: DataTypes.BOOLEAN,

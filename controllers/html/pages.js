@@ -143,4 +143,20 @@ router.get("/create", async (req, res) => {
   res.render("create-listing", { loggedIn: req.session.loggedIn, categories });
 });
 
+// Render categories per :id
+router.get("/category/:id", async (req, res) => {
+  const allItems = await Item.findAll({
+    include: Category,
+    where: { category_id: req.params.id },
+  });
+
+  const catItems = allItems.map((item) => item.get({ plain: true }));
+
+  res.render("all-listings", {
+    category_id: req.params.id,
+    catItems,
+    loggedIn: req.session.loggedIn,
+  });
+});
+
 module.exports = router;
