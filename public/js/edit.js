@@ -4,35 +4,32 @@ const post_id = window.location.toString().split("/")[
 
 const updateListingHandler = async (event) => {
   event.preventDefault();
- 
 
   let title = document.querySelector(`input[name='item-title']`).value.trim();
-  let description = document.querySelector(`textarea[name='item-desc']`).value.trim();
-  // let location = document.querySelector("item-location").value.trim();
-  // let category = document.querySelector("item-category").value.trim();
-  // let image = document.querySelector("item-image").value.trim();
+  let description = document
+    .querySelector(`textarea[name='item-desc']`)
+    .value.trim();
 
   let itemData = {
     title,
-    description
-    
+    description,
   };
-  console.log("TITLE:", title)
-  console.log("DESC:", description)
-  console.log("Item DATA", itemData)
+  console.log("TITLE:", title);
+  console.log("DESC:", description);
+  console.log("Item DATA", itemData);
 
   if (itemData) {
     const apiURL = `/api/item/${post_id}`;
     const response = await fetch(apiURL, {
-      method: 'PUT',
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(itemData),
+      body: JSON.stringify(itemData),
     });
 
     if (response.ok) {
       document.location.replace("/my-listings");
     } else {
-      alert("Failed to edit listing.")
+      alert("Failed to edit listing.");
     }
   }
 };

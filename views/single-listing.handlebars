@@ -1,20 +1,20 @@
 {{#if loggedIn}}
-<div id="single-listing-pg">
-  <div id="listing-hero">
-    <img src="{{item.image}}" alt="{{item.title}}" />
-  </div>
-  <div id="listing-details">
-    <h2>{{item.title}}</h2>
-    <p>{{item.description}}</p>
-  </div>
-  <div id="listing-links">
-    {{! Add link to save button }}
-    <button class="btn primary-btn save-btn" id="{{item.id}}">Save</button>
+  <div id="single-listing-pg">
+    <div class="listing-hero">
+      <img src="{{item.image}}" alt="{{item.title}}" />
+    </div>
+    <div class="listing-details">
+      <h2>{{item.title}}</h2>
+      <p>{{item.description}}</p>
+    </div>
+    <div id="listing-links">
+      {{! Add link to save button }}
+      <button class="btn primary-btn save-btn" id="{{item.id}}">Save</button>
       {{#if item.isAvailable}}
-      <a href="mailto:{{item.user.email}}"><button
-          class="btn primary-btn"
-          id="contact-btn"
-        >Contact Lender</button></a>
+        <a href="mailto:{{item.user.email}}"><button
+            class="btn primary-btn"
+            id="contact-btn"
+          >Contact Lender</button></a>
       {{else}}
         <p>Sorry, this item is currently being borrowed.</p>
         <button class="btn disabled-btn">Contact Lender</button>
@@ -23,6 +23,5 @@
   </div>
 {{/if}}
 <script src="/js/pending.js"></script>
-
 
 <script src="/js/save.js"></script>

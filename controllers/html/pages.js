@@ -120,7 +120,11 @@ router.get("/edit-listing/:id", async (req, res) => {
       return res.redirect("/my-listings");
     } else {
       const editItem = allItems.get({ plain: true });
-      res.render("edit-listing", { layout: "main", itemId, editItem });
+      res.render("edit-listing", {
+        loggedIn: req.session.loggedIn,
+        itemId,
+        editItem,
+      });
     }
   } catch (error) {
     // Handle errors

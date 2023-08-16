@@ -275,11 +275,11 @@ input[type]:focus,
 }
 
 /* Single Listing Page */
-#listing-hero img {
+.listing-hero img {
   width: 100%;
 }
 
-#listing-details {
+.listing-details {
   padding: 40px 0;
 }
 
