@@ -1,6 +1,4 @@
-const post_id = window.location.toString().split("/")[
-  window.location.toString().split("/").length - 1
-];
+const itemId = document.querySelector('input[name="item-id"]').value;
 
 const updateListingHandler = async (event) => {
   event.preventDefault();
@@ -19,7 +17,7 @@ const updateListingHandler = async (event) => {
   console.log("Item DATA", itemData);
 
   if (itemData) {
-    const apiURL = `/api/item/${post_id}`;
+    const apiURL = `/api/item/${itemId}`;
     const response = await fetch(apiURL, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
