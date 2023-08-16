@@ -293,6 +293,7 @@ form {
 .badge {
   width: 100px;
   padding: 5px 10px;
+  margin: 10px 0 10px 0;
   text-align: center;
 }
 

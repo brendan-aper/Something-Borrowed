@@ -18,7 +18,7 @@ const markLending = async function () {
 };
 
 const markAvail = async function () {
-  let availability = {
+  const availability = {
     isAvailable: true,
   };
 
