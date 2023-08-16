@@ -114,6 +114,7 @@ ul {
 button {
   border: none;
   outline: inherit;
+  font-size: 100%;
 }
 
 a {

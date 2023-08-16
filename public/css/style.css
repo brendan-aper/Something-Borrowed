@@ -260,6 +260,7 @@ form {
 /* Item listing card */
 .listings-grid {
   padding: 3%;
+  min-height: 100vh;
 }
 
 .item-card {
@@ -344,4 +345,14 @@ form {
   margin-top: -50px;
   background-color: var(--cream);
   border-radius: var(--border-radius);
+}
+
+.listing-details p {
+  margin-bottom: 15px;
+}
+
+.listing-buttons .btn {
+  padding: 10px;
+  min-width: 100px;
+  width: fit-content;
 }
