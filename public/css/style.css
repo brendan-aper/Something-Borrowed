@@ -7,7 +7,7 @@
   --cream: #f4f6f6;
   --dark: #38302e;
   --border-radius: 25px;
-  --border-radius-button: 50px;
+  --border-radius-button: 15px;
   --webkit-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
   --moz-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
   --box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
@@ -97,8 +97,9 @@ a.btn {
 
 /* Buttons & Links */
 .btn {
-  padding: 15px;
+  /* padding: 15px; */
   margin: 20px 10px 0 0;
+  padding: 10px;
   min-width: 100px;
   width: fit-content;
   border-radius: var(--border-radius-button);
@@ -354,8 +355,6 @@ form {
   margin-bottom: 15px;
 }
 
-.listing-buttons .btn {
-  padding: 10px;
-  min-width: 100px;
-  width: fit-content;
+#listing-links .btn {
+  padding: 20px 40px;
 }
