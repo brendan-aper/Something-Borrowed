@@ -477,3 +477,7 @@ select {
     margin: 10px;
   }
 }
+
+.my-icon {
+  padding-right: 5px;
+}
