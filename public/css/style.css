@@ -44,6 +44,12 @@ h2 {
   font-size: 24px;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+}
+
 .navbar {
   width: 90%;
   padding: 5%;
@@ -56,12 +62,13 @@ nav ul {
 }
 
 nav a {
-  background-color: unset;
-  color: var(--dark);
+  background-color: var(--cream);
+  color: var(--primary);
+  font-size: 16px;
 }
 
 nav a:hover {
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 main {

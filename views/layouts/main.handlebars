@@ -2,45 +2,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" type="text/css" href="/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    {{! Import icons }}
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"
+    />
     <title>Something Borrowed</title>
   </head>
   <body>
-    <div>
-      <h1>Something Borrowed</h1>
-    </div>
-    {{#if loggedIn }}
-    <nav class="navbar">
-      <ul>
-        <li class="nav-btn"><a href="/">Explore</a></li>
-        <li class="nav-btn"><a href="/favorites" id="favorites" >Favorites</a></li>
-        {{!-- dynamically pull in the user's id for these two url? --}}
-        <li class="nav-btn"><a href="/my-listings">My Listings</a></li>
-        <li class="nav-btn"><a href="/create">Create Listing</a></li>
-        <li class="nav-btn"><a id="logout-btn">Logout</a></li>
-      </ul>
-    </nav>
-    {{ else }}
-
+    {{#if loggedIn}}
+      <header>
+        <h1>Something Borrowed</h1>
+        <span style="font-size: 40px; color: #98afae;">
+          <i class="fi fi-sr-circle-user"></i></span>
+      </header>
       <nav class="navbar">
-      <ul>
-        <li class="nav-btn"><a href="/">Explore</a></li>
-        <li class="nav-btn"><a href="/signup">Sign Up</a></li>
-        <li class="nav-btn"><a href="/login">Log In</a></li>
-      </ul>
-    </nav>
+        <ul>
+          <li class="nav-btn"><a href="/">Explore</a></li>
+          <li class="nav-btn"><a
+              href="/favorites"
+              id="favorites"
+            >Favorites</a></li>
+          {{! dynamically pull in the user's id for these two url? }}
+          <li class="nav-btn"><a href="/my-listings">My Listings</a></li>
+          <li class="nav-btn"><a href="/create">Create Listing</a></li>
+          <li class="nav-btn"><a id="logout-btn">Logout</a></li>
+        </ul>
+      </nav>
+    {{else}}
+      <header>
+        <h1>Something Borrowed</h1>
+      </header>
+      <nav class="navbar">
+        <ul>
+          <li class="nav-btn"><a href="/">Explore</a></li>
+          <li class="nav-btn"><a href="/signup">Sign Up</a></li>
+          <li class="nav-btn"><a href="/login">Log In</a></li>
+        </ul>
+      </nav>
     {{/if}}
     <main>
       {{{body}}}
     </main>
     <script src="/js/index.js"></script>
     <script src="/js/logout.js"></script>
-</body>
-
-
   </body>
 
 </html>
-
