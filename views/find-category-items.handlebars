@@ -1,4 +1,6 @@
 <div class="listings-grid">
+  <p class="filter-text">Filter by Category:</p>
+  {{> categories}}
   {{#each itemArray as |item|}}
     <div>
       <h2>{{category.name}} items in your area</h2>

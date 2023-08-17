@@ -8,12 +8,21 @@ router.get("/", async (req, res) => {
       include: [User, Category],
     });
 
+    const categoryData = await Category.findAll({
+      include: Item,
+    });
+
+    const categories = categoryData.map((category) =>
+      category.get({ plain: true })
+    );
+
     const items = itemData.map((item) => item.get({ plain: true }));
 
     console.log(items);
 
     res.render("all-listings", {
       items,
+      categories,
       User,
       Category,
       loggedIn: req.session.loggedIn,
@@ -91,7 +100,7 @@ router.get("/favorites", async (req, res) => {
     itemArray.push(item);
     console.log(itemArray);
   });
- 
+
   res.render("favorite", {
     itemArray,
     User,
@@ -163,11 +172,42 @@ router.get("/category/:id", async (req, res) => {
 
     const itemArray = catItems.map((item) => item.get({ plain: true }));
 
-    console.log("item array...", itemArray);
+    const categoryData = await Category.findAll({
+      include: Item,
+    });
+
+    const categories = categoryData.map((category) =>
+      category.get({ plain: true })
+    );
+
+    if (!itemArray) {
+      res.json("Sorry no items");
+    }
 
     res.render("find-category-items", {
       itemArray,
+      categories,
       User,
+      Category,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Render items for a different user
+router.get("/user/:id", async (req, res) => {
+  try {
+    const catItems = await Item.findAll({
+      where: { user_id: req.params.id },
+      include: [Category, User],
+    });
+
+    const itemArray = catItems.map((item) => item.get({ plain: true }));
+
+    res.render("diff-user-listings", {
+      itemArray,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {

@@ -169,7 +169,6 @@ a.btn {
 .orange-link:hover {
   color: var(--secondary);
 }
-
 /* Forms - input and textarea */
 input {
   border: 2px solid #98afae;
@@ -237,11 +236,27 @@ form {
   border-radius: 50px;
 }
 
+/* Category Buttons on Home page */
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.category-list a {
+  margin-bottom: 10px;
+}
+
+.filter-text {
+  margin-bottom: 10px;
+}
+
 .category-btn {
   padding: 5px 10px;
+  margin-right: 5px;
   color: var(--primary);
   background-color: var(--cream);
-  border: 1px solid var(--cream);
+  outline: 1px solid var(--cream);
   border-radius: var(--border-radius);
   -webkit-box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11);
   -moz-box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11);
@@ -249,14 +264,6 @@ form {
 }
 
 .category-btn:hover {
-  border: 1px solid #ffffff;
-  background-color: #eaeceb;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-
-.category-btn:active {
   color: var(--cream);
   background-color: var(--primary);
 }
@@ -269,7 +276,7 @@ form {
 
 .item-card {
   display: flex;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .card-image {
