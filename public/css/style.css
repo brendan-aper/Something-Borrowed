@@ -23,6 +23,18 @@ body {
   line-height: 1.5em;
 }
 
+main {
+  background-color: var(--grey);
+  /* padding: 3%; */
+  border-radius: 35px 35px 0 0;
+}
+
+.page-container {
+  padding: 8%;
+  /* min-height: 60vh; */
+}
+
+/* Text */
 h1,
 h2,
 h3,
@@ -45,6 +57,12 @@ h2 {
   color: var(--primary);
 }
 
+.bolded {
+  font-weight: bold;
+  line-height: 1.8em;
+}
+
+/* Header & Navigation */
 header {
   display: flex;
   justify-content: space-between;
@@ -75,28 +93,18 @@ nav a:hover {
   border-bottom: 1px solid #d7d5d5;
 }
 
-main {
-  background-color: var(--grey);
-  /* padding: 3%; */
-  border-radius: 35px 35px 0 0;
-}
-
-.page-container {
-  padding: 8%;
-  /* min-height: 100vh; */
+/* Footer */
+footer {
+  font-size: 12px;
+  font-weight: 300;
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
+  justify-content: space-around;
+  padding: 20px 0;
+  color: var(--sage);
+  background-color: var(--primary-drk);
 }
 
-.extra-btns {
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 40px;
-  width: 100%;
-}
-
-/* Links & Buttons */
+/* Buttons & Links*/
 a {
   color: var(--primary);
 }
@@ -109,12 +117,6 @@ a.btn {
   text-align: center;
 }
 
-.bolded {
-  font-weight: bold;
-  line-height: 1.8em;
-}
-
-/* Buttons & Links */
 .btn {
   margin: 20px 10px 20px 0;
   padding: 0 20px;
@@ -123,6 +125,13 @@ a.btn {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.extra-btns {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  width: 100%;
 }
 
 .primary-btn {
