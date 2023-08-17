@@ -65,10 +65,13 @@ nav a {
   background-color: var(--cream);
   color: var(--primary);
   font-size: 16px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--grey);
 }
 
 nav a:hover {
   color: var(--secondary);
+  border-bottom: 1px solid #d7d5d5;
 }
 
 main {
