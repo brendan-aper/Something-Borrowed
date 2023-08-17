@@ -38,7 +38,7 @@ const createHeandler = async function (event) {
     description: description,
     location: location,
     category_id: category,
-    image: imgURL,
+    image: imgURL || "https://res.cloudinary.com/du1rn35uq/image/upload/v1692239985/f8ycsrl6e6ttkbgvffme.jpg",
   };
 
   console.log(itemData);
