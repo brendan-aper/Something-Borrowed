@@ -42,6 +42,7 @@ h1 {
 
 h2 {
   font-size: 24px;
+  color: var(--primary);
 }
 
 header {
@@ -101,7 +102,7 @@ a {
 }
 
 a:hover {
-  color: var(--secondary);
+  color: var(--primary-drk);
 }
 
 a.btn {
@@ -182,16 +183,15 @@ a.btn {
 }
 
 .txt-link {
-  color: #198a83;
-  padding: 5px 10px;
-  margin: 5px;
+  color: var(--primary);
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--grey);
 }
 .txt-link:hover {
-  /* color: var(--primary); */
-  outline: 1px solid var(--secondary);
-  background-color: var(--cream);
-  border-radius: var(--border-radius-button);
+  color: var(--secondary);
+  border-bottom: 1px solid #d7d5d5;
 }
+
 /* Forms - input and textarea */
 input {
   border: 1px solid #d7d5d5;
@@ -317,6 +317,7 @@ input[type]:focus,
 }
 
 .card-desc {
+  font-size: 18px;
   padding-bottom: 20px;
 }
 

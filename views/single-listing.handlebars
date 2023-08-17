@@ -6,10 +6,14 @@
     <div class="listing-details container-shadow">
       <h2>{{item.title}}</h2>
       <p class="card-desc">{{item.description}}</p>
-      <p><span class="bolded">Category:</span> {{item.category.name}}</p>
+      <p><span class="bolded">Category:</span>
+        <a
+          class="txt-link"
+          href="/category/{{item.category.id}}"
+        >{{item.category.name}}</a></p>
       <p class="lendee-info"><span class="bolded">Lended by:</span>
         {{item.user.first_name}}</p>
-      <a href="/user/{{item.user.id}}">View more listings from
+      <a class="txt-link" href="/user/{{item.user.id}}">View more listings from
         {{item.user.first_name}}</a>
     </div>
     <div id="listing-links">
