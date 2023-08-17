@@ -449,6 +449,10 @@ select {
   padding: 20px 40px 0 40px;
 }
 
+#listing-links .btn {
+  padding: 30px;
+}
+
 .warning-text {
   margin-top: 20px;
   width: 100%;

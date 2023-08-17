@@ -18,7 +18,9 @@
     </div>
     <div id="listing-links">
       {{#if item.isAvailable}}
-        <button class="btn primary-btn save-btn" id="{{item.id}}">Save</button>
+        <button class="btn primary-btn save-btn" id="{{item.id}}"><span
+            style="color: #ffffff;"
+          ><i class="fi fi-br-heart"></i></span></button>
         <a href="mailto:{{item.user.email}}"><button
             class="btn primary-btn"
             id="contact-btn"
@@ -26,7 +28,9 @@
       {{else}}
         <p class="warning-text">Sorry, this item is currently being borrowed by
           someone else.</p>
-        <button class="btn primary-btn save-btn" id="{{item.id}}">Save</button>
+        <button class="btn primary-btn save-btn" id="{{item.id}}"><span
+            style="color: #ffffff;"
+          ><i class="fi fi-br-heart"></i></span></button>
         <button class="btn disabled-btn">Contact Lender</button>
       {{/if}}
     </div>
