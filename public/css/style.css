@@ -24,14 +24,12 @@ body {
 }
 
 main {
-  background-color: var(--grey);
-  /* padding: 3%; */
+  background-color: #dfe4e4;
   border-radius: 35px 35px 0 0;
 }
 
 .page-container {
   padding: 8%;
-  /* min-height: 60vh; */
 }
 
 /* Text */
@@ -412,6 +410,13 @@ select {
   margin-bottom: 15px;
 }
 
-#listing-links .btn {
-  padding: 20px 40px;
+#listing-links {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 40px 0 40px;
+}
+
+.warning-text {
+  margin-top: 20px;
+  width: 100%;
 }
