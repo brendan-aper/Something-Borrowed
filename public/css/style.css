@@ -201,6 +201,10 @@ a.btn {
   border-bottom: 1px solid #d7d5d5;
 }
 
+.cloudinary-button {
+  margin-top: 5px;
+}
+
 /* Forms - input and textarea */
 input {
   border: 1px solid #d7d5d5;
@@ -240,7 +244,22 @@ input[type]:focus,
   box-shadow: var(--box-shadow);
 }
 
-#search-section {
+select {
+  color: var(--primary-drk);
+  background-color: var(--grey);
+  border-radius: var(--border-radius);
+  margin-left: 10px;
+  padding: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
+    no-repeat;
+  background-position: calc(100% - 0.4rem) center;
+}
+
+/* Search bar section - not showing currently */
+/* #search-section {
   margin: 5px;
   max-width: 500px;
 }
@@ -253,7 +272,7 @@ input[type]:focus,
   background: url(images/comment-author.gif) no-repeat scroll 7px 7px;
   padding-left: 30px;
   border-radius: 50px;
-}
+} */
 
 /* Category Buttons on Home page */
 .category-list {
