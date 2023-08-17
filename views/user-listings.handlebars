@@ -4,16 +4,16 @@
       <h2>Welcome, {{user.first_name}}!</h2>
       <p class="filter-text">Your Listings:</p>
     </div>
-    <div class="flex-container">
+    <div id="my-list-contain">
       {{#each myItems as |item|}}
-        <article class="item-card">
+        <article id="my-article">
           <input type="hidden" name="item-id" value="{{id}}" />
-          <div class="card-image container-shadow">
+          <div class="listing-hero">
             <a href="/item/{{id}}">
               <img src="{{image}}" alt="{{title}}" />
             </a>
           </div>
-          <div class="card-details container-shadow">
+          <div class="card-details listing-details container-shadow">
             <h2>
               <a href="/item/{{id}}">{{title}}</a>
             </h2>

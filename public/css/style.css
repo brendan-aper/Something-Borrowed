@@ -143,7 +143,7 @@ a.btn {
 .primary-btn {
   color: var(--cream);
   background-color: var(--primary);
-  border: 1px solid var(--primary);
+  outline: 1px solid var(--primary);
 }
 
 .primary-btn:hover {
@@ -188,8 +188,8 @@ a.btn {
 
 .orange-btn:hover {
   color: var(--cream);
-  background-color: #bb5826;
-  outline: 1px solid var(--secondary);
+  background-color: #e6621f;
+  outline: 1px solid #e6621f;
 }
 
 .edit-del-btns {
@@ -456,4 +456,24 @@ select {
 .warning-text {
   margin-top: 20px;
   width: 100%;
+}
+
+#my-list-contain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1400px;
+  margin-top: 40px;
+}
+
+#my-article {
+  padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 1000px) {
+  #my-article {
+    width: 40%;
+    padding-bottom: 40px;
+    margin: 10px;
+  }
 }
