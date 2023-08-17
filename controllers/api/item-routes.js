@@ -1,5 +1,5 @@
 const express = require("express");
-const { Item, User } = require("../../models");
+const { Item, User, Category } = require("../../models");
 const router = express.Router();
 
 // GET all item
@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const itemData = await Item.findByPk(req.params.id, {
-      include: [User],
+      include: [User, Category],
     });
 
     if (!itemData) {
