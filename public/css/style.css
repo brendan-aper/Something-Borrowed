@@ -6,7 +6,7 @@
   --grey: #eaeceb;
   --cream: #f4f6f6;
   --dark: #38302e;
-  --border-radius: 25px;
+  --border-radius: 15px;
   --border-radius-button: 20px;
   --webkit-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
   --moz-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
@@ -40,7 +40,6 @@ main {
 }
 
 /* Text */
-h1,
 h2,
 h3,
 h4,
@@ -49,12 +48,6 @@ h6 {
   font-weight: bold;
   padding-bottom: 10px;
   line-height: 1.5em;
-}
-
-h1 {
-  color: var(--primary);
-  padding-top: 20px;
-  text-align: center;
 }
 
 h2 {
@@ -71,23 +64,28 @@ h2 {
 header {
   display: flex;
   justify-content: space-between;
-  padding: 40px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+#logo {
+  width: 250px;
 }
 
 .navbar {
-  width: 90%;
-  padding: 5%;
+  padding: 0px 20px 20px 20px;
+  max-width: 600px;
 }
 
 nav ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 nav a {
   background-color: var(--cream);
-  color: var(--primary);
+  color: var(--dark);
   font-size: 16px;
   padding-bottom: 5px;
   border-bottom: 1px solid var(--grey);
@@ -351,6 +349,7 @@ select {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-top: 20px;
 }
 
 .item-card {
