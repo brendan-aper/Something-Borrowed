@@ -43,6 +43,7 @@ router.post("/login", async (req, res) => {
       where: {
         email: req.body.email,
       },
+
     });
 
     const dbUserData = await User.findOne({
@@ -68,6 +69,12 @@ router.post("/login", async (req, res) => {
       res
         .status(400)
         .json({ message: "Incorrect email or password, please try again" });
+      return;
+    }
+
+    const validPassword = dbUserDataWithPassword.checkPassword(req.body.password);
+    if (!validPassword) {
+      res.status(400).json({ message: "Incorrect email or password, please try again" });
       return;
     }
 
