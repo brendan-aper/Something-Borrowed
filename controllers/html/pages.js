@@ -185,9 +185,8 @@ router.get("/user/:id", async (req, res) => {
 
     const itemArray = catItems.map((item) => item.get({ plain: true }));
 
-    res.render("find-category-items", {
+    res.render("diff-user-listings", {
       itemArray,
-      User,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
