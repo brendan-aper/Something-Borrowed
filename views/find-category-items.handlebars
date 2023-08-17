@@ -1,8 +1,8 @@
 <div class="listings-grid">
-  <div>
-    <h2>Viewing All Listings</h2>
-  </div>
   {{#each itemArray as |item|}}
+    <div>
+      <h2>{{category.name}} items in your area</h2>
+    </div>
     <article class="item-card">
       <div class="card-image container-shadow">
         <a href="/item/{{id}}">

@@ -85,13 +85,19 @@ router.get("/favorites", async (req, res) => {
       where: {
         id: element.blogPost_id,
       },
+      include: [User, Category],
     });
     let item = findItem.get({ plain: true });
     itemArray.push(item);
     console.log(itemArray);
   });
-
-  res.render("favorite", { itemArray, loggedIn: req.session.loggedIn });
+ 
+  res.render("favorite", {
+    itemArray,
+    User,
+    Category,
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 // my-listings
@@ -152,7 +158,7 @@ router.get("/category/:id", async (req, res) => {
 
     const catItems = await Item.findAll({
       where: { category_id: categoryId },
-      include: Category,
+      include: [Category, User],
     });
 
     const itemArray = catItems.map((item) => item.get({ plain: true }));
@@ -161,6 +167,7 @@ router.get("/category/:id", async (req, res) => {
 
     res.render("find-category-items", {
       itemArray,
+      User,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
