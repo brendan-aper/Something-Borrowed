@@ -91,7 +91,7 @@ router.get("/favorites", async (req, res) => {
     itemArray.push(item);
     console.log(itemArray);
   });
- 
+
   res.render("favorite", {
     itemArray,
     User,
@@ -164,6 +164,26 @@ router.get("/category/:id", async (req, res) => {
     const itemArray = catItems.map((item) => item.get({ plain: true }));
 
     console.log("item array...", itemArray);
+
+    res.render("find-category-items", {
+      itemArray,
+      User,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Render items for a different user
+router.get("/user/:id", async (req, res) => {
+  try {
+    const catItems = await Item.findAll({
+      where: { user_id: req.params.id },
+      include: [Category, User],
+    });
+
+    const itemArray = catItems.map((item) => item.get({ plain: true }));
 
     res.render("find-category-items", {
       itemArray,
