@@ -32,6 +32,13 @@ main {
   padding: 8%;
 }
 
+@media only screen and (min-width: 1000px) {
+  .center-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 /* Text */
 h1,
 h2,
@@ -200,10 +207,41 @@ a.btn {
 }
 
 .cloudinary-button {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
   margin-top: 5px;
+  padding: 0 20px;
+  background-color: var(--secondary) !important;
+  border-radius: var(--border-radius-button) !important;
+}
+
+.cloudinary-button:hover {
+  background-color: #e6621f !important;
+  -webkit-box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11) !important;
+  -moz-box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11) !important;
+  box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11) !important;
 }
 
 /* Forms - input and textarea */
+.login-card {
+  max-width: 400px;
+}
+
+.create-card {
+  max-width: 600px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .item-card {
+    width: 50%;
+  }
+  .create-card {
+    width: 600px;
+  }
+}
+
 input {
   border: 1px solid #d7d5d5;
   border-radius: var(--border-radius);
@@ -323,7 +361,6 @@ select {
 .card-image {
   z-index: 0;
   width: 50%;
-  /* margin: 10px; */
   border-radius: var(--border-radius);
 }
 
@@ -345,12 +382,6 @@ select {
 .card-desc {
   font-size: 18px;
   padding-bottom: 20px;
-}
-
-@media only screen and (min-width: 1000px) {
-  .item-card {
-    width: 50%;
-  }
 }
 
 /* Badges & Warnings */
