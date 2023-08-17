@@ -1,31 +1,40 @@
-<div class="listings-grid">
-  <p class="filter-text">Filter by Category:</p>
-  {{> categories}}
-  {{#each itemArray as |item|}}
-    <div>
-      <h2>{{category.name}} items in your area</h2>
+<section class="page-container">
+  <div class="listings-grid">
+    <p class="filter-text">Filter by Category:</p>
+    <div class="category-list">
+      {{#each categories as |category|}}
+        <a class="category-btn" href="/category/{{id}}">{{name}}</a>
+      {{/each}}
     </div>
-    <article class="item-card">
-      <div class="card-image container-shadow">
-        <a href="/item/{{id}}">
-          <img src="{{image}}" alt="{{title}}" />
-        </a>
+    {{#each itemArray as |item|}}
+      <div>
+        <h2>{{category.name}} items in your area</h2>
       </div>
-      <div class="card-details container-shadow">
-        <h2>
-          <a href="/item/{{id}}">{{title}}</a>
-        </h2>
-        {{#if isAvailable}}
-          <p class="badge available-badge">Available</p>
-        {{else}}
-          <p class="badge unavailable-badge">Unavailable</p>
-        {{/if}}
-        <p>{{description}}</p>
-        <p><span class="bolded">Category:</span>
-          <a href="/category/{{category.id}}">{{category.name}}</a></p>
-        <p class="lendee-info"><span class="bolded">Lended by:</span>
-          {{item.user.first_name}}</p>
-      </div>
-    </article>
-  {{/each}}
-</div>
+      <article class="item-card">
+        <div class="card-image container-shadow">
+          <a href="/item/{{id}}">
+            <img src="{{image}}" alt="{{title}}" />
+          </a>
+        </div>
+        <div class="card-details container-shadow">
+          <h2>
+            <a href="/item/{{id}}">{{title}}</a>
+          </h2>
+          {{#if isAvailable}}
+            <p class="badge available-badge">Available</p>
+          {{else}}
+            <p class="badge unavailable-badge">Unavailable</p>
+          {{/if}}
+          <p class="card-desc">{{description}}</p>
+          <p><span class="bolded">Category:</span>
+            <a
+              class="txt-link"
+              href="/category/{{category.id}}"
+            >{{category.name}}</a></p>
+          <p class="lendee-info"><span class="bolded">Lended by:</span>
+            {{item.user.first_name}}</p>
+        </div>
+      </article>
+    {{/each}}
+  </div>
+</section>

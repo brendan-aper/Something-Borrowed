@@ -3,42 +3,53 @@
   <input type="text" name="search" value="search for an item" />
 </div> }}
 
-<div class="listings-grid">
-  {{! <div>
-    <h2>Viewing All Listings</h2>
-  </div> }}
-<div>
-    <p class="filter-text">Filter by Category:</p>
-  {{> categories}}
-</div>
-  {{#each items as |item|}}
-    <article class="item-card">
-      <div class="card-image container-shadow">
-        {{!-- {{#if image}} --}}
-        <a href="/item/{{id}}">
-          <img src="{{image}}" alt="{{title}}" />
-        </a>
-        {{!-- {{else}}
-        <a href="/item/{{id}}">
-          <img src="../public/assets/no-image-placeholder.jpg" alt="no-image-given" />
-        </a>
-        {{/if }} --}}
+<section class="page-container">
+  <div class="listings-grid">
+    <div>
+      <p class="filter-text">Filter by Category:</p>
+      <div class="category-list">
+        {{#each categories as |category|}}
+          <a class="category-btn" href="/category/{{id}}">{{name}}</a>
+        {{/each}}
       </div>
-      <div class="card-details container-shadow">
-        <h2>
-          <a href="/item/{{id}}">{{title}}</a>
-        </h2>
-        {{#if isAvailable}}
-          <p class="badge available-badge">Available</p>
-        {{else}}
-          <p class="badge unavailable-badge">Unavailable</p>
-        {{/if}}
-        <p>{{description}}</p>
-        <p><span class="bolded">Category:</span>
-          <a href="/category/{{category.id}}">{{category.name}}</a></p>
-        <p class="lendee-info"><span class="bolded">Lended by:</span>
-          {{item.user.first_name}}</p>
-      </div>
-    </article>
-  {{/each}}
-</div>
+    </div>
+    <div class="flex-container">
+      {{#each items as |item|}}
+        <article class="item-card">
+          <div class="card-image container-shadow">
+            {{#if image}}
+              <a href="/item/{{id}}">
+                <img src="{{image}}" alt="{{title}}" />
+              </a>
+            {{else}}
+              <a href="/item/{{id}}">
+                <img
+                  src="../public/assets/no-image-placeholder.jpg"
+                  alt="no-image-given"
+                />
+              </a>
+            {{/if}}
+          </div>
+          <div class="card-details container-shadow">
+            <h2>
+              <a href="/item/{{id}}">{{title}}</a>
+            </h2>
+            {{#if isAvailable}}
+              <p class="badge available-badge">Available</p>
+            {{else}}
+              <p class="badge unavailable-badge">Unavailable</p>
+            {{/if}}
+            <p class="card-desc">{{description}}</p>
+            <p><span class="bolded">Category:</span>
+              <a
+                class="txt-link"
+                href="/category/{{category.id}}"
+              >{{category.name}}</a></p>
+            <p class="lendee-info"><span class="bolded">Lended by:</span>
+              {{item.user.first_name}}</p>
+          </div>
+        </article>
+      {{/each}}
+    </div>
+  </div>
+</section>

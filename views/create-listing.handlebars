@@ -1,4 +1,4 @@
-<div class="page-container">
+<section class="page-container">
   <div class="login-card">
     {{#if loggedIn}}
       <h2>Create New Listing</h2>
@@ -38,11 +38,11 @@
 
         <div class="input-section">
           <p>Add an item image:</p>
-          <button class="cloudinary-button" id="search">Search File</button>
+          <button class="cloudinary-button" id="search">Upload File</button>
         </div>
 
         <div class="input-section">
-          <label class="form-label" for="post-category">Choose category</label>
+          <label class="form-label" for="post-category">Choose category:</label>
           <select id="category-select" name="post-category">
             {{#each categories as |category|}}
               <option value="{{id}}">{{name}}</option>
@@ -57,7 +57,7 @@
       <p>Log in to post an item!</p>
     {{/if}}
   </div>
-</div>
+</section>
 
 <script
   src="https://upload-widget.cloudinary.com/global/all.js"
