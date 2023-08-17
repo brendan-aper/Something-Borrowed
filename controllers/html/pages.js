@@ -8,12 +8,21 @@ router.get("/", async (req, res) => {
       include: [User, Category],
     });
 
+    const categoryData = await Category.findAll({
+      include: Item,
+    });
+
+    const categories = categoryData.map((category) =>
+      category.get({ plain: true })
+    );
+
     const items = itemData.map((item) => item.get({ plain: true }));
 
     console.log(items);
 
     res.render("all-listings", {
       items,
+      categories,
       User,
       Category,
       loggedIn: req.session.loggedIn,
@@ -163,11 +172,23 @@ router.get("/category/:id", async (req, res) => {
 
     const itemArray = catItems.map((item) => item.get({ plain: true }));
 
-    console.log("item array...", itemArray);
+    const categoryData = await Category.findAll({
+      include: Item,
+    });
+
+    const categories = categoryData.map((category) =>
+      category.get({ plain: true })
+    );
+
+    if (!itemArray) {
+      res.json("Sorry no items");
+    }
 
     res.render("find-category-items", {
       itemArray,
+      categories,
       User,
+      Category,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
