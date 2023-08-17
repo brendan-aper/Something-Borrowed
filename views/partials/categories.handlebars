@@ -1,5 +1,5 @@
 <div class="category-list">
-  {{#each category}}
-    <a href="/{{name}}">{{name}}</a>
+  {{#each categories as |category|}}
+    <a class="category-btn" href="/category/{{id}}">{{name}}</a>
   {{/each}}
 </div>

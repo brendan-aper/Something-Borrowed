@@ -1,28 +1,10 @@
-{{! Saving the search bar and category buttons for if we have time (nice-to-have but not necessary right now) }}
-{{! <div id="search-bar">
-  <input type="text" name="search" value="search for an item" />
-</div> }}
-
 <div class="listings-grid">
-  {{! <div>
-    <h2>Viewing All Listings</h2>
-  </div> }}
-<div>
-    <p class="filter-text">Filter by Category:</p>
-  {{> categories}}
-</div>
-  {{#each items as |item|}}
+  {{#each itemArray as |item|}}
     <article class="item-card">
       <div class="card-image container-shadow">
-        {{!-- {{#if image}} --}}
         <a href="/item/{{id}}">
           <img src="{{image}}" alt="{{title}}" />
         </a>
-        {{!-- {{else}}
-        <a href="/item/{{id}}">
-          <img src="../public/assets/no-image-placeholder.jpg" alt="no-image-given" />
-        </a>
-        {{/if }} --}}
       </div>
       <div class="card-details container-shadow">
         <h2>
