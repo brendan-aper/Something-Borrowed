@@ -37,7 +37,7 @@ const createHeandler = async function (event) {
     title: title,
     description: description,
     location: location,
-    category: category,
+    category_id: category,
     image: imgURL,
   };
 
