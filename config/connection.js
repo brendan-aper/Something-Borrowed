@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 require("dotenv").config();
 
-const sequelize = process.envJAWSDB_URL
-  ? new Sequelize(process.env.envJAWSDB_URL)
+const sequelize = process.env.JAWSDB_URL
+  ? new Sequelize(process.env.JAWSDB_URL)
   : new Sequelize(
       process.env.DB_NAME,
       process.env.DB_USER,
@@ -11,9 +11,9 @@ const sequelize = process.envJAWSDB_URL
         host: "localhost",
         dialect: "mysql",
         port: 3306,
-        dialectOptions: {
-          socketPath: "/tmp/mysql.sock",
-        },
+        // dialectOptions: {
+        //   socketPath: "/tmp/mysql.sock",
+        // },
       }
     );
 
