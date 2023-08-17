@@ -5,7 +5,7 @@ const { Item, User, Category, Favorite } = require("../../models");
 router.get("/", async (req, res) => {
   try {
     const itemData = await Item.findAll({
-      include: [User],
+      include: [User, Category],
     });
 
     const items = itemData.map((item) => item.get({ plain: true }));
@@ -27,16 +27,16 @@ router.get("/", async (req, res) => {
 router.get("/item/:id", async (req, res) => {
   try {
     const itemData = await Item.findByPk(req.params.id, {
-      include: [User],
+      include: [User, Category],
     });
 
     if (itemData) {
       const item = itemData.get({ plain: true });
 
-      console.log(item);
       res.render("single-listing", {
         item,
         User,
+        Category,
         loggedIn: req.session.loggedIn,
       });
     } else {
@@ -147,19 +147,25 @@ router.get("/create", async (req, res) => {
 
 // Render categories per :id
 router.get("/category/:id", async (req, res) => {
-  const allItems = await Item.findAll({
-    include: Category,
-    where: { category_id: req.params.id },
-  });
+  try {
+    const categoryId = req.params.id;
 
-  const catItems = allItems.map((item) => item.get({ plain: true }));
+    const catItems = await Item.findAll({
+      where: { category_id: categoryId },
+      include: Category,
+    });
 
-  res.render("all-listings", {
-    category_id: req.params.id,
-    catItems,
-    loggedIn: req.session.loggedIn,
-  });
+    const itemArray = catItems.map((item) => item.get({ plain: true }));
+
+    console.log("item array...", itemArray);
+
+    res.render("find-category-items", {
+      itemArray,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
-
 
 module.exports = router;
