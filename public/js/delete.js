@@ -2,7 +2,7 @@ const deleteBtns = document.querySelectorAll(".delete-btn");
 
 deleteBtns.forEach((deleteBtn) => {
   deleteBtn.addEventListener("click", async function () {
-    const itemId = this.closest(".item-card").querySelector(
+    const itemId = this.closest("article").querySelector(
       'input[name="item-id"]'
     ).value;
 
