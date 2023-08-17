@@ -1,16 +1,40 @@
-<p>Welcome {{ user.first_name }}</p>
 <div class="listings-grid">
+  <div>
+    <h2>Welcome, {{user.first_name}}</h2>
+  </div>
   {{#each myItems as |item|}}
     <article class="item-card">
-      <div class="card-image">
-        <img src="{{image}}" alt="{{title}}" />
+      <input type="hidden" name="item-id" value="{{id}}" />
+      <div class="card-image container-shadow">
+        <a href="/item/{{id}}">
+          <img src="{{image}}" alt="{{title}}" />
+        </a>
       </div>
-      <div class="card-details">
+      <div class="card-details container-shadow">
         <h2>
           <a href="/item/{{id}}">{{title}}</a>
         </h2>
+        {{#if isAvailable}}{{else}}
+          <p class="badge available-badge">Lending</p>
+        {{/if}}
         <p>{{description}}</p>
+        <div class="listing-buttons">
+          {{#if isAvailable}}
+            <p>Currently lending this to someone?</p>
+            <button class="btn primary-btn lend-btn">I'm lending this item</button>
+          {{else}}
+            <p>No longer lending this item?</p>
+            <button class="btn secondary-btn avail-btn">It's available</button>
+          {{/if}}
+          <div class="edit-del-btns">
+            <a href="/edit-listing/{{id}}" class="btn orange-btn">Edit listing</a>
+            <a class="btn orange-out-btn delete-btn" id="delete-btn">Delete
+              listing</a>
+          </div>
+        </div>
       </div>
     </article>
   {{/each}}
 </div>
+<script src="/js/pending.js"></script>
+<script src="/js/delete.js"></script>

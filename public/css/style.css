@@ -1,12 +1,16 @@
 :root {
   --primary: #265552;
+  --primary-drk: #204845;
   --secondary: #d8652d;
   --sage: #98afae;
   --grey: #eaeceb;
   --cream: #f4f6f6;
   --dark: #38302e;
   --border-radius: 25px;
-  --border-radius-button: 50px;
+  --border-radius-button: 20px;
+  --webkit-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
+  --moz-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
+  --box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
 }
 
 body {
@@ -14,7 +18,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
+  font-size: 14px;
   color: var(--dark);
+  line-height: 1.5em;
 }
 
 h1,
@@ -30,13 +36,13 @@ h6 {
 
 h1 {
   color: var(--primary);
-  padding: 10px;
+  padding-top: 20px;
+  text-align: center;
 }
 
 .navbar {
   width: 90%;
   padding: 5%;
-  /* position: fixed; */
 }
 
 nav ul {
@@ -56,8 +62,20 @@ nav a:hover {
 
 main {
   background-color: var(--grey);
-  padding: 5%;
+  /* padding: 3%; */
   border-radius: 35px 35px 0 0;
+}
+
+.page-container {
+  padding: 3%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.pad-top {
+  padding-top: 40px;
 }
 
 /* Links & Buttons */
@@ -69,9 +87,21 @@ a:hover {
   color: var(--secondary);
 }
 
+a.btn {
+  text-align: center;
+}
+
+.bolded {
+  font-weight: bold;
+}
+
+/* Buttons & Links */
 .btn {
-  padding: 10px 30px;
-  height: 40px;
+  /* padding: 15px; */
+  margin: 20px 10px 0 0;
+  padding: 10px;
+  min-width: 100px;
+  width: fit-content;
   border-radius: var(--border-radius-button);
   border: none;
 }
@@ -83,9 +113,8 @@ a:hover {
 }
 
 .primary-btn:hover {
-  color: var(--primary);
-  background-color: var(--grey);
-  border: 1px solid var(--primary);
+  color: var(--cream);
+  background-color: var(--primary-drk);
 }
 
 .secondary-btn {
@@ -95,17 +124,65 @@ a:hover {
 }
 
 .secondary-btn:hover {
-  color: var(--cream);
-  background-color: var(--primary);
+  color: var(--primary);
+  background-color: var(--cream);
+  outline: 1px solid var(--primary);
 }
 
-/* Forms styling */
+.disabled-btn {
+  color: #929195;
+  background-color: var(--grey);
+  outline: 1px solid #929195;
+}
+
+.orange-out-btn {
+  color: var(--secondary);
+  background-color: var(--cream);
+  outline: 1px solid var(--secondary);
+}
+
+.orange-out-btn:hover {
+  background-color: var(--grey);
+  outline: 1px solid var(--secondary);
+}
+
+.orange-btn {
+  color: var(--cream);
+  background-color: var(--secondary);
+  outline: 1px solid var(--secondary);
+}
+
+.orange-btn:hover {
+  color: var(--cream);
+  background-color: #bb5826;
+  outline: 1px solid var(--secondary);
+}
+
+.edit-del-btns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.orange-link {
+  color: var(--sage);
+}
+.orange-link:hover {
+  color: var(--secondary);
+}
+
+/* Forms - input and textarea */
 input {
   border: 2px solid #98afae;
-  border-radius: var(--border-radius-button);
+  border-radius: var(--border-radius);
   padding: 20px;
   height: 40px;
-  width: 300px;
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  padding: 20px;
+  border-radius: 25px;
 }
 
 textarea:focus,
@@ -120,9 +197,13 @@ input[type]:focus,
   margin-bottom: 15px;
 }
 
-/* .form-input {
-  display: block;
-} */
+form {
+  max-width: 400px;
+}
+
+.input-section label {
+  padding-bottom: 10px;
+}
 
 .form-label {
   font-size: 14px;
@@ -131,10 +212,14 @@ input[type]:focus,
 
 .form-input {
   border: 2px solid #98afae;
-  border-radius: var(--border-radius-button);
-  padding: 0 20px;
   margin: 10px 0;
-  height: 40px;
+  min-height: 40px;
+}
+
+.container-shadow {
+  -webkit-box-shadow: var(--webkit-box-shadow);
+  -moz-box-shadow: var(--moz-box-shadow);
+  box-shadow: var(--box-shadow);
 }
 
 #search-section {
@@ -158,14 +243,12 @@ input[type]:focus,
   background-color: var(--cream);
   border: 1px solid var(--cream);
   border-radius: var(--border-radius);
-  /* Move to root styles? */
   -webkit-box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11);
   -moz-box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11);
   box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11);
 }
 
 .category-btn:hover {
-  /* color: var(--cream); */
   border: 1px solid #ffffff;
   background-color: #eaeceb;
   -webkit-box-shadow: none;
@@ -179,39 +262,99 @@ input[type]:focus,
 }
 
 /* Item listing card */
+.listings-grid {
+  padding: 3%;
+  min-height: 100vh;
+}
+
 .item-card {
   display: flex;
-  padding: 2%;
+  padding: 5px;
 }
 
 .card-image {
+  z-index: 0;
   width: 50%;
-  margin: 2%;
-  /* TODO: Move box shadow & border radius to root styles? */
-  border-radius: 20px;
-  -webkit-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
-  -moz-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
-  box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
+  margin: 5px;
+  border-radius: var(--border-radius);
 }
 
 .card-image img {
+  object-fit: cover;
   width: 100%;
+  height: 100%;
   border-radius: 20px;
 }
 
 .card-details {
-  width: 50%;
-  margin: 2%;
-  /* background-color: (var(--dark));
-  border-radius: var(--border-radius); */
+  width: 60%;
+  padding: 20px 20px 20px 80px;
+  margin: 20px 0 20px -50px;
+  background-color: var(--cream);
+  border-radius: var(--border-radius);
+}
+
+/* Badges & Warnings */
+.badge {
+  width: 100px;
+  padding: 5px 10px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.available-badge {
+  color: var(--cream);
+  background-color: var(--sage);
+  border-radius: var(--border-radius-button);
+}
+
+.unavailable-badge {
+  color: var(--sage);
+  background-color: var(--cream);
+  outline: 1px solid var(--sage);
+  border-radius: var(--border-radius-button);
+}
+
+.warning-text {
+  color: var(--secondary);
 }
 
 /* Single Listing Page */
-#listing-hero img {
-  width: 100%;
-  /* height: 500px; */
+#single-listing-pg {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 60px;
 }
 
-#listing-details {
-  padding: 40px 0;
+.listing-hero {
+  position: relative;
+  width: 100%;
+  top: 0;
+  z-index: 0;
+}
+.listing-hero img {
+  width: 100%;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.listing-details {
+  position: relative;
+  width: 75%;
+  padding: 40px;
+  margin: 20px auto; /* Adjusts margin to center vertically */
+  z-index: 1;
+  padding: 40px;
+  margin-top: -50px;
+  background-color: var(--cream);
+  border-radius: var(--border-radius);
+}
+
+.listing-details p {
+  margin-bottom: 15px;
+}
+
+#listing-links .btn {
+  padding: 20px 40px;
 }

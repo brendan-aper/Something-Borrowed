@@ -1,42 +1,44 @@
-const updateForm = document.getElementById("update-form");
-const deleteBtn = document.getElementById("delete-btn");
+const post_id = window.location.toString().split("/")[
+  window.location.toString().split("/").length - 1
+];
 
-const updateHandler = async function () {
-  let title = document.querySelector("item-title").value;
-  let description = document.querySelector("item-description").value;
-  let location = document.querySelector("item-location").value;
-  let category = document.querySelector("item-category").value;
-  let image = document.querySelector("item-image").value;
+const updateListingHandler = async (event) => {
+  event.preventDefault();
+ 
+
+  let title = document.querySelector(`input[name='item-title']`).value.trim();
+  let description = document.querySelector(`textarea[name='item-desc']`).value.trim();
+  // let location = document.querySelector("item-location").value.trim();
+  // let category = document.querySelector("item-category").value.trim();
+  // let image = document.querySelector("item-image").value.trim();
 
   let itemData = {
-    title: title,
-    descpription: description,
-    location: location,
-    category: category,
-    image: image,
+    title,
+    description
+    
   };
+  console.log("TITLE:", title)
+  console.log("DESC:", description)
+  console.log("Item DATA", itemData)
 
-  console.log(itemData);
-
-  await fetch(`/api/item/${item.id}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+  if (itemData) {
+    const apiURL = `/api/item/${post_id}`;
+    const response = await fetch(apiURL, {
+      method: 'PUT',
+      headers: { "Content-Type": "application/json" },
     body: JSON.stringify(itemData),
-  });
+    });
 
-  document.location.replace("/explore");
+    if (response.ok) {
+      document.location.replace("/my-listings");
+    } else {
+      alert("Failed to edit listing.")
+    }
+  }
 };
 
-const deleteHandler = async function () {
-  await fetch(`/api/post/${item.id}`, {
-    method: "DELETE",
-  });
+const updatePostButton = document.querySelector("#update-post-btn");
 
-  document.location.replace("/explore");
-};
-
-// Event listener on update-form
-updateForm.addEventListener("submit", updateHandler);
-
-// Event listener on delete item posting button
-deleteBtn.addEventListener("click", deleteHandler);
+if (updatePostButton) {
+  updatePostButton.addEventListener("click", updateListingHandler);
+}

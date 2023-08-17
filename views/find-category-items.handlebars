@@ -1,11 +1,13 @@
 <div class="listings-grid">
-  <div>
-    <h2>My Favorites</h2>
-  </div>
   {{#each itemArray as |item|}}
-    <article class="item-card" id="{{id}}">
+    <div>
+      <h2>{{category.name}} items in your area</h2>
+    </div>
+    <article class="item-card">
       <div class="card-image container-shadow">
-        <img src="{{image}}" alt="{{title}}" />
+        <a href="/item/{{id}}">
+          <img src="{{image}}" alt="{{title}}" />
+        </a>
       </div>
       <div class="card-details container-shadow">
         <h2>
@@ -14,17 +16,14 @@
         {{#if isAvailable}}
           <p class="badge available-badge">Available</p>
         {{else}}
-          <p class="badge unavailable-badge">Available</p>
+          <p class="badge unavailable-badge">Unavailable</p>
         {{/if}}
         <p>{{description}}</p>
         <p><span class="bolded">Category:</span>
           <a href="/category/{{category.id}}">{{category.name}}</a></p>
         <p class="lendee-info"><span class="bolded">Lended by:</span>
           {{item.user.first_name}}</p>
-        <button class="btn orange-out-btn unsaveBtn">Unsave</button>
       </div>
     </article>
   {{/each}}
 </div>
-
-<script src="/js/fav.js"></script>

@@ -1,5 +1,5 @@
 const express = require("express");
-const { Item } = require("../../models");
+const { Item, User, Category } = require("../../models");
 const router = express.Router();
 
 // GET all item
@@ -9,23 +9,34 @@ router.get("/", async (req, res) => {
   res.json(allItems);
 });
 
-// GET a single item by ID
+// get single listing
 router.get("/:id", async (req, res) => {
-  const singleItem = await Item.findByPk(req.params.id);
-  res.json(singleItem);
+  try {
+    const itemData = await Item.findByPk(req.params.id, {
+      include: [User, Category],
+    });
+
+    if (!itemData) {
+      res.status(404).json({ message: "No item found with that id." });
+      return;
+    }
+    res.status(200).json(itemData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // POST a new item
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
+  let itemData = { ...req.body, user_id: req.session.user.id };
+  // user ID and post ID passed in from post
+  console.log(itemData);
+  await Item.create(itemData);
+  console.log("Created new item");
+  res.status(200).json(itemData);
+});
 
-  let itemData = {...req.body, user_id: req.session.user.id}
-  // user ID and post ID passed in from post 
-  console.log(itemData)
-  await Item.create(itemData)
-  console.log('Created new item');
-  res.status(200).json(itemData)
 
-})
 // DELETE a item
 router.delete("/:id", async (req, res) => {
   const findItem = await Item.destroy({
@@ -43,8 +54,8 @@ router.put("/:id", async (req, res) => {
       {
         title: req.body.title,
         description: req.body.description,
-        price: req.body.price,
         location: req.body.location,
+        isAvailable: req.body.isAvailable,
       },
       {
         where: {
@@ -53,7 +64,7 @@ router.put("/:id", async (req, res) => {
       }
     );
     console.log("updated");
-    res.json("updated item");
+    res.json("updated item" + updateItem);
   } catch (err) {
     if (err.name === "SequelizeUniqueConstraintError") {
       return res.status(400).json({ error: "Not enough information" });
@@ -64,5 +75,23 @@ router.put("/:id", async (req, res) => {
       .json({ error: "An error occurred while creating a post." });
   }
 });
+
+// router.put('/:post_id', (req, res) => {
+//   const post_id = parseInt(req.params.post_id);
+//   const { title, description } = req.body;
+
+//   // Find the listing by ID
+//   const listing = listings.find(item => item.id === post_id);
+
+//   if (!listing) {
+//     return res.status(404).json({ error: 'Listing not found' });
+//   }
+
+//   // Update the listing
+//   listing.title = title;
+//   listing.description = description;
+
+//   return res.status(200).json({ message: 'Listing updated successfully', listing });
+// });
 
 module.exports = router;
