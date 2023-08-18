@@ -18,8 +18,11 @@ router.post("/", async (req, res) => {
   console.log(req.body)
   try {
   let blogPost_id = Number(req.body.itemId);
-  console.log(blogPost_id)
-  const newFav = await Favorite.create({user_id: req.session.user.id, blogPost_id: blogPost_id});
+  const newFav = await Favorite.create({
+    user_id: req.session.user.id, 
+    blogPost_id: blogPost_id
+  });
+
   console.log('created' + newFav);
   res.status(200).json(newFav)
 } catch (err) {
