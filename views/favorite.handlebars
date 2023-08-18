@@ -3,32 +3,34 @@
     <div>
       <h2>My Favorites</h2>
     </div>
-    {{#each itemArray as |item|}}
-      <article class="item-card" id="{{id}}">
-        <div class="card-image container-shadow">
-          <img src="{{image}}" alt="{{title}}" />
-        </div>
-        <div class="card-details container-shadow">
-          <h2>
-            <a href="/item/{{id}}">{{title}}</a>
-          </h2>
-          {{#if isAvailable}}
-            <p class="badge available-badge">Available</p>
-          {{else}}
-            <p class="badge unavailable-badge">Available</p>
-          {{/if}}
-          <p class="card-desc">{{description}}</p>
-          <p><span class="bolded">Category:</span>
-            <a
-              class="txt-link"
-              href="/category/{{category.id}}"
-            >{{category.name}}</a></p>
-          <p class="lendee-info"><span class="bolded">Lended by:</span>
-            {{item.user.first_name}}</p>
-          <button class="btn orange-out-btn unsaveBtn">Unsave</button>
-        </div>
-      </article>
-    {{/each}}
+    <div class="flex-container">
+      {{#each itemArray as |item|}}
+        <article class="item-card" id="{{id}}">
+          <div class="card-image container-shadow">
+            <img src="{{image}}" alt="{{title}}" />
+          </div>
+          <div class="card-details container-shadow">
+            <h2>
+              <a href="/item/{{id}}">{{title}}</a>
+            </h2>
+            {{#if isAvailable}}
+              <p class="badge available-badge">Available</p>
+            {{else}}
+              <p class="badge unavailable-badge">Available</p>
+            {{/if}}
+            <p class="card-desc">{{description}}</p>
+            <p><span class="bolded">Category:</span>
+              <a
+                class="txt-link"
+                href="/category/{{category.id}}"
+              >{{category.name}}</a></p>
+            <p class="lendee-info"><span class="bolded">Lended by:</span>
+              {{item.user.first_name}}</p>
+            <button class="btn orange-out-btn unsaveBtn">Unsave</button>
+          </div>
+        </article>
+      {{/each}}</div>
+
   </div>
 </section>
 

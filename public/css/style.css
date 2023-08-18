@@ -6,7 +6,7 @@
   --grey: #eaeceb;
   --cream: #f4f6f6;
   --dark: #38302e;
-  --border-radius: 25px;
+  --border-radius: 15px;
   --border-radius-button: 20px;
   --webkit-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
   --moz-box-shadow: 4px 23px 37px 0px rgba(0, 0, 0, 0.11);
@@ -24,18 +24,25 @@ body {
 }
 
 main {
-  background-color: var(--grey);
-  /* padding: 3%; */
+  background-color: #dfe4e4;
   border-radius: 35px 35px 0 0;
 }
 
 .page-container {
   padding: 8%;
-  /* min-height: 60vh; */
+}
+
+@media only screen and (min-width: 1000px) {
+  .center-container {
+    display: flex;
+    justify-content: center;
+  }
+  .page-container {
+    padding: 4%;
+  }
 }
 
 /* Text */
-h1,
 h2,
 h3,
 h4,
@@ -44,12 +51,6 @@ h6 {
   font-weight: bold;
   padding-bottom: 10px;
   line-height: 1.5em;
-}
-
-h1 {
-  color: var(--primary);
-  padding-top: 20px;
-  text-align: center;
 }
 
 h2 {
@@ -66,23 +67,28 @@ h2 {
 header {
   display: flex;
   justify-content: space-between;
-  padding: 40px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+#logo {
+  width: 250px;
 }
 
 .navbar {
-  width: 90%;
-  padding: 5%;
+  padding: 0px 20px 20px 20px;
+  max-width: 600px;
 }
 
 nav ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 nav a {
   background-color: var(--cream);
-  color: var(--primary);
+  color: var(--dark);
   font-size: 16px;
   padding-bottom: 5px;
   border-bottom: 1px solid var(--grey);
@@ -137,7 +143,7 @@ a.btn {
 .primary-btn {
   color: var(--cream);
   background-color: var(--primary);
-  border: 1px solid var(--primary);
+  outline: 1px solid var(--primary);
 }
 
 .primary-btn:hover {
@@ -182,8 +188,8 @@ a.btn {
 
 .orange-btn:hover {
   color: var(--cream);
-  background-color: #bb5826;
-  outline: 1px solid var(--secondary);
+  background-color: #e6621f;
+  outline: 1px solid #e6621f;
 }
 
 .edit-del-btns {
@@ -202,10 +208,41 @@ a.btn {
 }
 
 .cloudinary-button {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
   margin-top: 5px;
+  padding: 0 20px;
+  background-color: var(--secondary) !important;
+  border-radius: var(--border-radius-button) !important;
+}
+
+.cloudinary-button:hover {
+  background-color: #e6621f !important;
+  -webkit-box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11) !important;
+  -moz-box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11) !important;
+  box-shadow: 4px 23px 37px -11px rgba(0, 0, 0, 0.11) !important;
 }
 
 /* Forms - input and textarea */
+.login-card {
+  max-width: 400px;
+}
+
+.create-card {
+  max-width: 600px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .item-card {
+    width: 50%;
+  }
+  .create-card {
+    width: 600px;
+  }
+}
+
 input {
   border: 1px solid #d7d5d5;
   border-radius: var(--border-radius);
@@ -247,7 +284,7 @@ input[type]:focus,
 select {
   color: var(--primary-drk);
   background-color: var(--grey);
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-button);
   margin-left: 10px;
   padding: 10px;
   -webkit-appearance: none;
@@ -315,6 +352,7 @@ select {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-top: 20px;
 }
 
 .item-card {
@@ -325,7 +363,6 @@ select {
 .card-image {
   z-index: 0;
   width: 50%;
-  /* margin: 10px; */
   border-radius: var(--border-radius);
 }
 
@@ -347,12 +384,6 @@ select {
 .card-desc {
   font-size: 18px;
   padding-bottom: 20px;
-}
-
-@media only screen and (min-width: 1000px) {
-  .item-card {
-    width: 50%;
-  }
 }
 
 /* Badges & Warnings */
@@ -412,6 +443,41 @@ select {
   margin-bottom: 15px;
 }
 
+#listing-links {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 40px 0 40px;
+}
+
 #listing-links .btn {
-  padding: 20px 40px;
+  padding: 30px;
+}
+
+.warning-text {
+  margin-top: 20px;
+  width: 100%;
+}
+
+#my-list-contain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1400px;
+  margin-top: 40px;
+}
+
+#my-article {
+  padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 1000px) {
+  #my-article {
+    width: 40%;
+    padding-bottom: 40px;
+    margin: 10px;
+  }
+}
+
+.my-icon {
+  padding-right: 5px;
 }

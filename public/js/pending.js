@@ -2,7 +2,7 @@ const lendBtns = document.querySelectorAll(".lend-btn");
 const availBtns = document.querySelectorAll(".avail-btn");
 
 const markLending = async function () {
-  const itemId = this.closest(".item-card").querySelector(
+  const itemId = this.closest("article").querySelector(
     'input[name="item-id"]'
   ).value;
 
@@ -22,7 +22,7 @@ const markLending = async function () {
 };
 
 const markAvail = async function () {
-  const itemId = this.closest(".item-card").querySelector(
+  const itemId = this.closest("article").querySelector(
     'input[name="item-id"]'
   ).value;
 
