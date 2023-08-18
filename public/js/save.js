@@ -6,7 +6,6 @@ const saveItem = async (event) => {
     saveBtn.textContent = 'Saved';
 
     let itemId = saveBtn.id;
-    console.log(itemId)
     await fetch('/api/favorite', {
         method: 'POST',
         headers: {

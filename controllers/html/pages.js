@@ -76,6 +76,7 @@ router.get("/pending", async (req, res) => {
 // favorites page
 router.get("/favorites", async (req, res) => {
   const user = req.session.user.id;
+  console.log(user)
   const favorites = await Favorite.findAll({
     where: {
       user_id: user,
